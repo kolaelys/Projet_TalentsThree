@@ -4,6 +4,7 @@ var SkillsElements = {
       data: {
         id: 1,
         title: "HTML",
+        parent: 0,
         description:
           "Principale langue du web, le HTML est constituté de texte encadré de balises. ",
         rankDescriptions: [
@@ -47,7 +48,7 @@ var SkillsElements = {
         id: 2,
         parent: 'HTML',
         title: "CSS",
-        dependsOn: [1],
+        pan: {x: 90, y:40},
         links: [
           {
             label: "Tutoriaux CSS",
@@ -78,7 +79,7 @@ var SkillsElements = {
       data: {
         id: 3,
         title: "CSS avancé",
-        dependsOn: [2],
+        parent: "CSS",
         links: [
           {
             label: "Sass vs. LESS",
@@ -120,7 +121,7 @@ var SkillsElements = {
       data: {
         id: 4,
         title: "Maitrise du web design",
-        dependsOn: [2],
+        parent: "CSS",
         description:
           "Vous pouvez réaliser vos idées en les transformant en page HTML avec le CSS adapté",
         stats: [
@@ -135,7 +136,7 @@ var SkillsElements = {
       data: {
         id: 5,
         title: "Effets jQuery",
-        dependsOn: [4],
+        parent:"Maitrise du web design",
         links: [
           {
             label: "Codecademy jQuery",
@@ -177,7 +178,7 @@ var SkillsElements = {
         id: 6,
         parent: 'HTML',
         title: "Référencement (SEO)",
-        dependsOn: [1],
+        parent: "HTML",
         links: [
           {
             label: "Search Engine Optimization (Google)",
@@ -210,7 +211,7 @@ var SkillsElements = {
       data: {
         id: 7,
         title: "Analytics",
-        dependsOn: [6],
+        parent: "Référencement (SEO)",
         links: [
           {
             label: "10 SEO Analysis Tools You Should Be Using",
@@ -250,7 +251,6 @@ var SkillsElements = {
         id: 8,
         parent: 'HTML',
         title: "Javascript",
-        dependsOn: [1],
         links: [
           {
             label: "JavaScript Tutorial",
@@ -283,7 +283,7 @@ var SkillsElements = {
       data: {
         id: 9,
         title: "JS bibliothèques & Frameworks",
-        dependsOn: [8],
+        parent: "Javascript",
         links: [
           {
             label: "Rejoignez nous les lundi pour étudier AngularJS!",
@@ -315,7 +315,7 @@ var SkillsElements = {
       data: {
         id: 10,
         title: "Maîtrise du développement Frontend",
-        dependsOn: [9],
+        parent: "JS bibliothèques & Frameworks",
         stats: [
           {
             title: "Design",
@@ -330,7 +330,6 @@ var SkillsElements = {
         id: 11,
         title: "Programmation serveur",
         parent: 'HTML',
-        dependsOn: [1],
         links: [
           {
             label: "Server-side scripting Wiki",
@@ -350,7 +349,7 @@ var SkillsElements = {
       data: {
         id: 12,
         title: "Frameworks serveur",
-        dependsOn: [11],
+        parent: "Programmation serveur",
         links: [
           {
             label: "Comparison of web application frameworks",
@@ -383,6 +382,7 @@ var SkillsElements = {
       data: {
         id: 13,
         title: "Configuration de bases de données",
+        parent: "none",
         //, dependsOn: [1]
         links: [
           {
@@ -417,7 +417,7 @@ var SkillsElements = {
       data: {
         id: 14,
         title: "Gestion avancée de bases de données",
-        dependsOn: [13],
+        parent: "Configuration de bases de données",
         links: [
           {
             label: "Stored Procedure - Wiki",
@@ -473,7 +473,7 @@ var SkillsElements = {
       data: {
         id: 15,
         title: "Maitrise du développement serveur",
-        dependsOn: [12, 14],
+        parent: "Gestion avancée de bases de données",
         description:
           "You are capable of architecting and building an application's backend to efficiently store and retrieve data.",
         stats: [
@@ -488,7 +488,7 @@ var SkillsElements = {
       data: {
         id: 16,
         title: "Authentication et Authorisations",
-        dependsOn: [15],
+        parent: "Maitrise du développement serveur",
         links: [
           {
             label: "ASP.NET authentication and authorization - CodeProject",
@@ -571,6 +571,7 @@ var SkillsElements = {
       data: {
         id: 18,
         title: "Découverte utilisateur",
+        parent: "none",
         maxPoints: 2,
         rankDescriptions: [
           "Vous savez poser les bonnes questions, et utiliser des croquis pour confirmer vos idées",
@@ -858,47 +859,6 @@ var SkillsElements = {
         ],
         talents: ["Demidieu"]
       }
-    },
-    {
-      data: {
-        id: 1,
-        title: "HTML",
-        description:
-          "Principale langue du web, le HTML est constituté de texte encadré de balises. ",
-        rankDescriptions: [
-          "Savoir construire une page web simple",
-          "Savoir creer des liens, faire une page multi-colonnes, travailler avec des champs de formulaires et balises medias."
-        ],
-        links: [
-          {
-            label: "HTML.net Tutorials",
-            url: "http://www.html.net/tutorials/html/"
-          },
-          {
-            label: "Sublime Text et Atom",
-            url: "http://lesbricodeurs.fr/articles/Sublime-Text-vs-Atom/"
-          },
-          {
-            label: "Notre prochaine session Web 101",
-            url: "http://lesbricodeurs.fr/evenements/"
-          }
-        ],
-        maxPoints: 2,
-        stats: [
-          {
-            title: "Webmarketing",
-            value: 1
-          },
-          {
-            title: "Sens du visuel",
-            value: 1
-          },
-          {
-            title: "Reseau",
-            value: 1
-          }
-        ],
-      },
     },
   ],
   
