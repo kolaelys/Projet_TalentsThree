@@ -4,7 +4,6 @@ var SkillsElements = {
       data: {
         id: 1,
         title: "HTML",
-        parent: 0,
         description:
           "Principale langue du web, le HTML est constituté de texte encadré de balises. ",
         rankDescriptions: [
@@ -41,14 +40,17 @@ var SkillsElements = {
           }
         ],
       },
+      position:{
+        x:-4550.1,
+        y:3.5,
+    },
     },
 
     {
       data: {
         id: 2,
-        parent: 'HTML',
         title: "CSS",
-        pan: {x: 90, y:40},
+        parent: 'HTML',
         links: [
           {
             label: "Tutoriaux CSS",
@@ -249,8 +251,8 @@ var SkillsElements = {
     {
       data: {
         id: 8,
-        parent: 'HTML',
         title: "Javascript",
+        parent: 'HTML',
         links: [
           {
             label: "JavaScript Tutorial",
@@ -382,8 +384,6 @@ var SkillsElements = {
       data: {
         id: 13,
         title: "Configuration de bases de données",
-        parent: "none",
-        //, dependsOn: [1]
         links: [
           {
             label: "w3schools.com SQL Tutorial",
@@ -411,7 +411,11 @@ var SkillsElements = {
             value: 3
           }
         ]
-      }
+      },
+      position:{
+        x:-56.76,
+        y:1011.4466887
+    },
     },
     {
       data: {
@@ -524,7 +528,7 @@ var SkillsElements = {
       data: {
         id: 17,
         title: "AJAX & APIs",
-        dependsOn: [10, 15],
+        parent: 'Maîtrise du développement Frontend',
         links: [
           {
             label: "AJAX (programming) Wiki",
@@ -571,7 +575,6 @@ var SkillsElements = {
       data: {
         id: 18,
         title: "Découverte utilisateur",
-        parent: "none",
         maxPoints: 2,
         rankDescriptions: [
           "Vous savez poser les bonnes questions, et utiliser des croquis pour confirmer vos idées",
@@ -597,18 +600,22 @@ var SkillsElements = {
           }
         ],
         talents: ["Télépathie"]
-      }
+      },
+      position:{
+        x:-0.35,
+        y:-2.9,
+    },
     },
     {
       data: {
         id: 19,
         title: "Design graphique",
+        parent: "Découverte utilisateur",
         maxPoints: 2,
         rankDescriptions: [
           "You can create a balanced, complementary layout with a clear message.",
           "You understand how to create a strikingly unique design, which supports traditional design values as well as your underlying message."
         ],
-        dependsOn: [18],
         links: [
           {
             label: "Graphic Design Wiki",
@@ -642,7 +649,7 @@ var SkillsElements = {
       data: {
         id: 20,
         title: "Outils de design graphique",
-        dependsOn: [19],
+        parent: "Design graphique",
         links: [
           {
             label:
@@ -668,7 +675,7 @@ var SkillsElements = {
       data: {
         id: 21,
         title: "Prototypes",
-        dependsOn: [18],
+        parent:"Découverte utilisateur",
         links: [
           {
             label: "Design Better And Faster With Rapid Prototyping",
@@ -699,7 +706,7 @@ var SkillsElements = {
       data: {
         id: 22,
         title: "Maîtrise de l'expérience utilisateur",
-        dependsOn: [19, 21],
+        parent: "Design graphique",
         description:
           "You are capable of converting project requirements to an attractive design that promotes a pleasant user experience.",
         stats: [
@@ -718,7 +725,7 @@ var SkillsElements = {
       data: {
         id: 23,
         title: "Tests utilisateur",
-        dependsOn: [22],
+        parent:"Maîtrise de l'expérience utilisateur",
         links: [
           {
             label: "My big list of 24 Web Site Usability Testing Tools",
@@ -780,7 +787,7 @@ var SkillsElements = {
       data: {
         id: 25,
         title: "Déploiement",
-        dependsOn: [24],
+        parent:"Administration serveur",
         links: [
           {
             label: "SSL Certificate Installation",
@@ -818,48 +825,48 @@ var SkillsElements = {
       }
     },
 
-    {
-      data: {
-        id: 26,
-        title: "Maître du développement web",
-        dependsOn: [4, 5, 10, 15, 22, 25],
-        links: [
-          {
-            label: "Web Development Wiki",
-            url: "http://en.wikipedia.org/wiki/Web_development"
-          }
-        ],
-        description:
-          "This refers to designing, creating, and maintaining a website.",
-        stats: [
-          {
-            title: "Sens du visuel",
-            value: 3
-          },
-          {
-            title: "Design",
-            value: 3
-          },
-          {
-            title: "Admin",
-            value: 3
-          },
-          {
-            title: "Webmarketing",
-            value: 3
-          },
-          {
-            title: "Reseau",
-            value: 3
-          },
-          {
-            title: "Gestion",
-            value: 3
-          }
-        ],
-        talents: ["Demidieu"]
-      }
-    },
+    // {
+    //   data: {
+    //     id: 26,
+    //     title: "Maître du développement web",
+    //     dependsOn: [4, 5, 10, 15, 22, 25],
+    //     links: [
+    //       {
+    //         label: "Web Development Wiki",
+    //         url: "http://en.wikipedia.org/wiki/Web_development"
+    //       }
+    //     ],
+    //     description:
+    //       "This refers to designing, creating, and maintaining a website.",
+    //     stats: [
+    //       {
+    //         title: "Sens du visuel",
+    //         value: 3
+    //       },
+    //       {
+    //         title: "Design",
+    //         value: 3
+    //       },
+    //       {
+    //         title: "Admin",
+    //         value: 3
+    //       },
+    //       {
+    //         title: "Webmarketing",
+    //         value: 3
+    //       },
+    //       {
+    //         title: "Reseau",
+    //         value: 3
+    //       },
+    //       {
+    //         title: "Gestion",
+    //         value: 3
+    //       }
+    //     ],
+    //     talents: ["Demidieu"]
+    //   }
+    // },
   ],
   
 //Liens entre les compétences 

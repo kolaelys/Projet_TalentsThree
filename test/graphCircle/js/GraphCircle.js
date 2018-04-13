@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
           shape: "hexagon",
           width: "200px",
           height: "200px",
+          'background-color': '#ad1a66'
         },
        
       },     
@@ -22,8 +23,9 @@ document.addEventListener("DOMContentLoaded", function() {
         selector: "edge",
         style: {
           label: "data(spe)",
-          "line-color": "#ad1a66"
-        }
+          "line-color": "#ad1a66",
+          width: "5px",
+        },
       },
       { //les compétences n'ayant pas de sources
         selector: ".initParent",
@@ -31,34 +33,73 @@ document.addEventListener("DOMContentLoaded", function() {
           width: "300px",
           height:"300px",
          'background-color': 'red',
+         'border-color': '#a3c60b',
+         'border-width': "10px"
         },
       },
+      { 
+        selector: ".front",
+        style:{
+          "line-color": "#42f4e8",
+        },
+      },
+      { 
+        selector: ".back",
+        style:{
+          "line-color": "#415cf4",
+        },
+      },
+      {
+      selector:':nonorphan',
+      style:{
+        'background-color': 'yellow',
+      }
+      },
+      {
+        selector:':grabbed',
+        style:{
+        'background-color': "purple",
+        }
+      }
+
     ],
     layout: {
-      name: "grid", // forme du Graphique
-      directed: true,
-  
+     
+      name: 'cose-bilkent',// forme du Graphique
+      animate: false,
+      randomize: false,
+      
+      refresh: 3,
+      boundingBox: { x:9, y:6, w:2, h:20 },
+      nodeDimensionsIncludeLabels: true,
+      avoidOverlap: false,
+      handleDisconnected: false,
+      idealEdgeLength: 60.4,
+      edgeElasticity: 3.1,
+      initialEnergyOnIncremental: 3.4,
+      padding: 35,
       fit: true,
-      clockwise: false,
-      minNodeSpacing: 10,
-      avoidOverlap: true,
-      avoidOverlapPadding: 100,
-      position: function(ele) { 
-        if (ele.data('title') === 'HTML') { 
-          return { row:1.5  , col: 0 }; 
-        } 
-        else if (ele.data('title') === 'Configuration de bases de données') { 
-          return { row:1.5  , col: 2 }; 
-        } 
-        else if (ele.data('title') === 'Découverte utilisateur') { 
-          return { row:1.5  , col: 4 }; 
-        } 
-        else if (ele.data('title') === 'Administration serveur') { 
-          return { row:1.5  , col: 6 }; 
-        } 
-      }
+      alignment: function( node ){ return { x: 10, y: 10 } },
+      // position: function(ele) { 
+      //   if (ele.data('title') === 'HTML') { 
+      //     return { x:1.5  , y: 5 }; 
+      //   } 
+      //   else if (ele.data('title') === 'Configuration de bases de données') { 
+      //     return { row:1.5  , col: 2 }; 
+      //   } 
+      //   else if (ele.data('title') === 'Découverte utilisateur') { 
+      //     return { row:1.5  , col: 4 }; 
+      //   } 
+      //   else if (ele.data('title') === 'Administration serveur') { 
+      //     return { row:1.5  , col: 6 }; 
+      //   } 
+      // },
+      nodeSpacing: function nodeSpacing(node) {
+        return 20;
+      },
     },
   });
+
   cy.on("mouseover", function(event) {
     //Afficher les informations au survol des compétences
 
@@ -129,8 +170,18 @@ cy.ready(function(){
   console.log(initParent);
   for(var i =0; i<initParent.length; i++){
     initParent[i].addClass('initParent');
-  
   }
+  var frontEdges = [cy.filter("edge[spe = 'Front']")];
+  var backEdges =[cy.filter("edge[spe = 'Back']")];  
+
+  for(var i =0; i<frontEdges.length; i++){
+    frontEdges[i].addClass("front");
+  }
+  for(var i =0; i<backEdges.length; i++){
+    backEdges[i].addClass("back");
+  }
+  
+  
   
 })
 cy.on('tap', 'node', function(){
@@ -157,7 +208,7 @@ cy.on('tap', 'node', function(){
 
   var delay = 0;
   var duration = 300;
-   for( var i = child.length - 1; i >= 0; i-- ){ (function(){
+   for( var i = child.length -1; i >= 0; i-- ){ (function(){
 
     var thischild = child[i];
     var parent = thischild.connectedEdges(function(el){
@@ -174,7 +225,8 @@ cy.on('tap', 'node', function(){
         'border-width': 0,
         'opacity': 0
       }
-    }, {
+    },
+     {
       duration: duration,
       complete: function(){
         thischild.remove();

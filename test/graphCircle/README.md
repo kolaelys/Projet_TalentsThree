@@ -32,16 +32,11 @@
 * Dans GraphCircle.js:
   * J'ai créer le graph grâce à la variable "cy" qui contient les informations du fichier data pour les afficher en forme "grid". 
   * J'ai récupéré les informations de `CytoData.js` et je les affiche au survol des compétences
-  * J'ai push dans un tableau `initParent` les compétences n'ayant pas de point source, je les ai changé de couleur(couleur provisoire)
   * J'ai testé une petite animation qui fait disparaître les éléments enfants des compétences sur lesquelles ont clic
-  
-
-
- 
-#### Ce que j'essaie de faire 
-
-> différencier les différents "niveaux" dans l'évolutions de l'apprentissage des langages
-explication: Rendre visuelle le nombre de compétences à apprendre avant de pouvoir accéder à celle qu'on vise
+  * J'ai push dans un tableau `initParent` les compétences n'ayant pas de point source, je les ai changé de couleur(couleur provisoire)
+  * J'ai changé les compétences de couleur selon leur niveau dans l'arbre par rapport à leur `initParent`
+  * Les liens entre les compétences sont de couleurs différente selon leur spécialisation "back" ou "front"
+  * j'ai fais un test en changeant la couleur des bordures des noeuds `initParent`, ceci est provisoire je pensais utiliser cette technique pour signaler le niveau de difficulté 
 
 
 
@@ -53,6 +48,8 @@ explication: Rendre visuelle le nombre de compétences à apprendre avant de pou
 
 * Bloquer l'accès au compétences enfant tant que l'objectif de la compétence parent n'est pas atteint (comme sur l'arbre de Xavier) 
 
-* Travailler sur la disposition des éléments dans un graphique type "preset" 
+* Placer au centre avec une animation la compétence sur laquelle on clic 
+
+
 
  
