@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TestCytoscapeJS</title>
+    <meta name="description" content="L'arbre des compétences du développement web">
+    <meta name="keywords" content="web design development rpg game talent skill">
+    <!-- <link href="css/layout.css" rel="stylesheet"> -->
+    <link href="css/test.css" rel="stylesheet">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+
+    <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-cose-bilkent/1.6.5/cytoscape-cose-bilkent.js"></script>
+</head>
+
+<style>
+    #cy {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1000;
+    }
+</style>
+
+
+</style>
+
+<body>
+    <div id="cy" data-bind="css: { open: isOpen }">
+
+        <div class="ltIE9-hide">
+            <div data-bind="css: { open: isOpen }" class="page">
+                <header>
+                    <img data-bind="click: toggle" src="img/logo.png" class="logo">
+                </header>
+                <div class="intro">
+                    <div class="content">
+                        <h2>Un arbre de talents
+                            <br /> pour développeurs web</h2>
+                        <p></p>
+                        <h3></h3>
+                        <button data-bind="click: toggle">Ouvrir l'arbre de talents &raquo;</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div id="info">
+        <div id="description"></div>
+        <div id="rankDescription"></div>
+        <div id="links"></div>
+        <div id="maxPoint"></div>
+        <div id="stats"></div>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/knockout.min.js"></script>
+    <script src="js/utils.js"></script>
+    <!-- <script src="CytoData.json"></script> -->
+    <!-- <script src="testCytoscape.js"></script> -->
+    <!--<script src='gly_elements.js'></script>-->
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/knockout.min.js"></script> 
+	<script src="js/utils.js"></script>
+	<script src="js/tft.dnd.data.js"></script>
+    <script src="js/tft.dnd.js"></script>-->
+
+    <script src='js/CytoData.js'></script>
+    <script src='js/GraphCircle.js'></script>
+    <script src='../../node_modules/cytoscape/dist/cytoscape.js'></script>
+    <script src='bower_components/cytoscape-cose-bilkent/cytoscape-cose-bilkent.js'></script>
+</body>
+
+</html>
