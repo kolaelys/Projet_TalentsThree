@@ -34,20 +34,12 @@
 
   * j'ai repris le code de Xavier en essayant de l'adapter pour l'animation
 
+#### Ce que j'ai fais
 
- 
-#### Ce que j'essaie de faire 
-
-> Faire apparaître le graphique au click du bouton "ouvrir l'arbre de compétence" 
-
-
-#### Ce qui bloque
-
-> Quand je clic sur les nodes, il y a un décalage
+* Appartion du graphique au click du bouton `ouvrir l'arbre de compétence` et retour à la vu d'avant lors du clic sur l'image `Bricoschool`
 
 #### Ce que je prévois de faire après
 
-* faire disparaître le graph avant le clic
 * Continuer de travailler sur la "bulle" d'information qui est actuellement inséré en brut dans des div HTML
 
 
