@@ -14,15 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
     self.isOpen = ko.observable(false);
     self.open = function() {
     self.isOpen(false);
-    cy.isOpen(false);
     };
     self.close = function() {
       self.isOpen(true);
-      cy.isOpen(true);
     };
     self.toggle = function() {
       self.isOpen(!self.isOpen());
-      cy.isOpen(!self.isOpen());
     };
 
   }
@@ -135,6 +132,15 @@ document.addEventListener("DOMContentLoaded", function() {
       },
     },
   });
+  $("#cy").toggle();
+
+  $("#close").click(function(){
+    $("#cy").toggle();
+  })
+  $("#open").click(function(){
+    $("#cy").toggle();
+  })
+ 
 
   cy.on("mouseover", function(event) {
     //Afficher les informations au survol des compétences

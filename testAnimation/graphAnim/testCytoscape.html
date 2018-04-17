@@ -26,7 +26,8 @@
         position: absolute;
         top: 0px;
         left: 0px;
-        z-index: 1000;
+        z-index: 10;
+        background: rgba(184, 188, 188, 0.5)
     }
 </style>
 
@@ -34,12 +35,12 @@
 </style>
 
 <body>
-    <div id="cy" data-bind="css: { open: isOpen }">
+    <div id="cy"></div>
 
         <div class="ltIE9-hide">
             <div data-bind="css: { open: isOpen }" class="page">
                 <header>
-                    <img data-bind="click: toggle" src="img/logo.png" class="logo">
+                    <img id="close"  data-bind="click: toggle" src="img/logo.png" class="logo">
                 </header>
                 <div class="intro">
                     <div class="content">
@@ -47,14 +48,14 @@
                             <br /> pour développeurs web</h2>
                         <p></p>
                         <h3></h3>
-                        <button data-bind="click: toggle">Ouvrir l'arbre de talents &raquo;</button>
+                        <button  id="open" data-bind="click: toggle">Ouvrir l'arbre de talents &raquo;</button>
                     </div>
                 </div>
 
             </div>
 
         </div>
-    </div>
+    
     <div id="info">
         <div id="description"></div>
         <div id="rankDescription"></div>
