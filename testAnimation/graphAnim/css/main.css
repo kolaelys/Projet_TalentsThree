@@ -5,30 +5,27 @@
     More info at: http://lesselements.com
   ---------------------------------------------------*/
 .ltIE9-show {
-  display: none;
-}
+  display: none; }
+
 .ltIE9 .ltIE9-show {
-  display: block;
-}
+  display: block; }
 .ltIE9 .ltIE9-hide {
-  display: none;
-}
+  display: none; }
+
 .ltIE9-warning {
   text-align: center;
-  padding: 100px 20px;
-}
-.ltIE9-warning p {
-  margin-top: 0.5em;
-}
+  padding: 100px 20px; }
+  .ltIE9-warning p {
+    margin-top: 0.5em; }
+
 .logo {
   display: block;
   width: 667px;
   height: 257px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
+
 html {
-  overflow-y: scroll;
-}
+  overflow-y: scroll; }
 
 body {
   margin: 0;
@@ -37,27 +34,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 1.5em;
-  background: rgb(66, 183, 199);
-  padding-top: 35px;
-}
+  background: #42b7c7;
+  padding-top: 35px; }
+
 header {
   position: relative;
-  z-index: 200;
-}
-header .logo {
-  position: absolute;
-  z-index: 200;
-  left: 50%;
-  margin-left: -310px;
-  margin-top: 100px;
-  cursor: pointer;
-}
+  z-index: 200; }
+  header .logo {
+    position: absolute;
+    z-index: 200;
+    left: 50%;
+    margin-left: -310px;
+    margin-top: 100px;
+    cursor: pointer; }
+
 .page.animated header .logo {
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
+  transition: all 0.3s ease-out; }
 .page.open header .logo {
   -webkit-transform: scale(0.4);
   -moz-transform: scale(0.4);
@@ -65,8 +60,8 @@ header .logo {
   -ms-transform: scale(0.4);
   transform: scale(0.4);
   margin-left: -810px;
-  margin-top: -50px;
-}
+  margin-top: -50px; }
+
 button {
   border: 1px solid #fbf287;
   -webkit-border-radius: 5px;
@@ -76,13 +71,7 @@ button {
   -moz-box-shadow: 0 6px 11px #000000;
   box-shadow: 0 6px 11px #000000;
   background: #debd4c;
-  background: -webkit-gradient(
-    linear,
-    left bottom,
-    left top,
-    color-stop(0, #c38f1f),
-    color-stop(1, #faed7c)
-  );
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c38f1f), color-stop(1, #faed7c));
   background: -ms-linear-gradient(bottom, #c38f1f, #faed7c);
   background: -moz-linear-gradient(center bottom, #c38f1f 0%, #faed7c 100%);
   background: -o-linear-gradient(#faed7c, #c38f1f);
@@ -92,36 +81,31 @@ button {
   line-height: 1em;
   padding: 0.5em 0.75em;
   cursor: pointer;
-  color: #510;
-}
+  color: #510; }
+
 img {
-  border: 0 none;
-}
+  border: 0 none; }
+
 a {
-  color: #fe9;
-}
+  color: #fe9; }
+
 hr {
   border: 0;
   height: 1px;
-  background: #333;
-}
-h2,
-h3,
-.h2,
-.h3 {
+  background: #333; }
+
+h2, h3, .h2, .h3 {
   line-height: 1.25em;
   font-weight: normal;
-  margin: 0;
-}
-h2,
-.h2 {
-  font-size: 2em;
-}
-h3,
-.h3 {
+  margin: 0; }
+
+h2, .h2 {
+  font-size: 2em; }
+
+h3, .h3 {
   font-size: 1.5em;
-  margin-bottom: 0.25em;
-}
+  margin-bottom: 0.25em; }
+
 input.h2 {
   display: block;
   border: 1px solid black;
@@ -136,14 +120,13 @@ input.h2 {
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
+  transition: all 0.3s ease-out; }
 
 .page {
   margin: 0 auto;
   position: relative;
-  z-index: 1000;
-}
+  z-index: 1000; }
+
 .intro {
   width: 600px;
   margin: 0 auto;
@@ -156,15 +139,13 @@ input.h2 {
   -moz-transform: scale(1);
   -o-transform: scale(1);
   -ms-transform: scale(1);
-  transform: scale(1);
-}
+  transform: scale(1); }
 
 .page.animated .intro {
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
   -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
-}
+  transition: all 0.3s ease-out; }
 .page.open .intro {
   opacity: 0;
   top: 500px;
@@ -172,5 +153,6 @@ input.h2 {
   -moz-transform: scale(0);
   -o-transform: scale(0);
   -ms-transform: scale(0);
-  transform: scale(0);
-}
+  transform: scale(0); }
+
+/*# sourceMappingURL=main.css.map */
