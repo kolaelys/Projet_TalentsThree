@@ -132,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
       },
     },
   });
+
   $("#cy").toggle();
 
   $("#close").click(function(){
@@ -228,32 +229,67 @@ cy.ready(function(){
   
 })
 cy.on('tap', 'node', function(){
+  
+   if (this.scratch().restData == null) {
 
+    var targets=this.successors().targets()
+//     // Save node data and remove
+     this.scratch({
+       restData: this.successors().targets().remove()
+     })
+}
 
+  else {
+    // Restore the removed nodes from saved data
+    this.scratch().restData.restore();
+    this.scratch({
+         restData: null
+    });
+
+   }
+  
+  
+/*
   var nodes = this;
   var tapped = nodes;
   var child = [];
     // If the element is set
     // If the element is set
-  nodes.addClass('parent');
+nodes.addClass('parent');
+ if(!this.hasClass('clicked')){ 
   
   for(;;){
     var connectedEdges = nodes.connectedEdges(function(el){
+      
       return !el.target().anySame( nodes );
     });
 
     var connectedTargets = connectedEdges.targets();
 
-    Array.prototype.push.apply( child, connectedTargets );
+    Array.prototype.push.apply(child, connectedTargets);
     nodes = connectedTargets;
+    var saveNodes=localStorage.getItem(child, connectedTargets); 
 
-    if( nodes.empty() ){ break; }
+    if( nodes.empty() ){ 
+      break;
+    }
   }
   var delay = 0;
   var duration = 300;
-  if(!this.hasClass('clicked')){ 
-  for( var i = child.length -1; i >= 0; i-- ){ (function(){
+
+
+
    
+  for( var i = child.length -1; i >= 0; i-- ){ (function(){
+
+    localStorage.setItem(child, connectedTargets);
+
+     //Check Save Nodes
+    // child.forEach(function(saveNodes) {
+    // console.log(saveNodes);
+    // })
+
+
     var thischild = child[i];
     var parent = thischild.connectedEdges(function(el){
       return el.target().same(thischild);
@@ -282,27 +318,55 @@ cy.on('tap', 'node', function(){
     delay += duration;
   })(); } // for
   this.addClass('clicked');
-  }
-  else{
-    var connectedEdges = nodes.connectedEdges(function(el){
-      return el.target().anySame( nodes );
-    });
-    console.log(connectedEdges)
+  
     // console.log(nodes);
     // var parent = child.connectedEdges(function(el){
     //   return el.target().same(thischild);
     // }).source();
-    // console.log(parent);
-    for( var i = 0; i<child.length; i++ ){ (function(){
+    // console.log(parent);  
+  }
+ 
+    else{
       
+      nodes= localStorage.getItem(child, connectedTargets);
+ 
+  for(;;){
+    var connectedEdges = this.connectedEdges(function(el){
+      
+      return el.target().anySame( nodes );
+    });
+
+    var connectedTargets = connectedEdges.targets();
+
+    Array.prototype.push(child, connectedTargets);
+    node = connectedTargets;
+   
+  }
+  var delay = 0;
+  var duration = 300;
+
+       child.forEach(function(nodes) {
+         var connectedEdges = nodes;
+         var connectedTargets= connectedEdges.targets();
+         console.log("connected: ");
+         console.log(connectedTargets);
+         Array.prototype.push(child, connectedTargets);
+          console.log(child)
+          })
+     this.connectedEdges(function(el){
+       return el.target().anySame(connectedTargets );
+     });
+
+     for( var i = 0; i< child.length; i++ ){ (function(){
+
       var thischild = child[i];
       var parent = thischild.connectedEdges(function(el){
         return el.target().same(thischild);
       }).source();
+   
   
-  
-      thischild.delay( delay, function(){
-        parent.addClass('restore');
+      this.delay( delay, function(){
+        parent.classList.remove('eating');
       } ).animate({
         position: parent.position(),
         css: {
@@ -311,16 +375,17 @@ cy.on('tap', 'node', function(){
           'border-width': 0,
           'opacity': 0.5
         }
-      },
+     },
+      
        {
         duration: duration,
-        complete: function(){
-          parent.addClass('parentNode');
-        }
-      });
+      }); 
   
       delay += duration;
-    })(); }     
-  }
+  // for
+
+ /*  })
+  }}
+ */
 }); // on tap
 });

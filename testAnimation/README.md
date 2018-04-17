@@ -37,8 +37,11 @@
 #### Ce que j'ai fais
 
 * Appartion du graphique au click du bouton `ouvrir l'arbre de compétence` et retour à la vu d'avant lors du clic sur l'image `Bricoschool`
+* Changement sur l'animation parents/enfants pour qu'elle soit effective dans les deux sens
 
 #### Ce que je prévois de faire après
+
+* Trouver comment reproduire l'ancienne animation (disparition et apparition noeud après noeud) 
 
 * Continuer de travailler sur la "bulle" d'information qui est actuellement inséré en brut dans des div HTML
 
@@ -46,9 +49,8 @@
 #### Mes tentatives d'aujourdhui 
 
 * J'ai essayé de de changer le background du graph selon les nodes, mais seul la couleur des compétences changent, pas le fond
-* J'ai essayé d'inverser l'animation lors du clic des compétences, afin que si les noeuds enfant soit déjà "display" ils réaparaissent au second clic
 
-> Je n'ai mallheuresement pas obtenue de résultats pour ces points
+> Je n'ai mallheuresement pas obtenue de résultats pour ce point
 
 
  
