@@ -1,12 +1,40 @@
 var SkillsElements = {
   nodes: 
   [
-    
+    {
+      data: {
+        id: "front",
+        description:
+          ""
+      },
+    }, 
+    {
+      data: {
+        id: "back",
+        description:
+          ""
+      },
+    },
+    {
+      data: {
+        id: "devops",
+        description:
+          ""
+      },
+    },
+    {
+      data: {
+        id: "design",
+        description:
+          ""
+      },
+    },   
     {
 
       data: {
         id: 1,
         title: "HTML",
+        parent: 'front',
         description:
           "Principale langue du web, le HTML est constituté de texte encadré de balises. ",
         rankDescriptions: [
@@ -54,7 +82,7 @@ var SkillsElements = {
       data: {
         id: 2,
         title: "CSS",
-        parent: 'HTML',
+        parent: 'front',
         links: [
           {
             label: "Tutoriaux CSS",
@@ -85,7 +113,7 @@ var SkillsElements = {
       data: {
         id: 3,
         title: "CSS avancé",
-        parent: "CSS",
+        parent: "front",
         links: [
           {
             label: "Sass vs. LESS",
@@ -127,7 +155,7 @@ var SkillsElements = {
       data: {
         id: 4,
         title: "Maitrise du web design",
-        parent: "CSS",
+        parent: "front",
         description:
           "Vous pouvez réaliser vos idées en les transformant en page HTML avec le CSS adapté",
         stats: [
@@ -142,7 +170,7 @@ var SkillsElements = {
       data: {
         id: 5,
         title: "Effets jQuery",
-        parent:"Maitrise du web design",
+        parent:"front",
         links: [
           {
             label: "Codecademy jQuery",
@@ -184,7 +212,7 @@ var SkillsElements = {
         id: 6,
         parent: 'HTML',
         title: "Référencement (SEO)",
-        parent: "HTML",
+        parent: "front",
         links: [
           {
             label: "Search Engine Optimization (Google)",
@@ -217,7 +245,7 @@ var SkillsElements = {
       data: {
         id: 7,
         title: "Analytics",
-        parent: "Référencement (SEO)",
+        parent: "front",
         links: [
           {
             label: "10 SEO Analysis Tools You Should Be Using",
@@ -256,7 +284,7 @@ var SkillsElements = {
       data: {
         id: 8,
         title: "Javascript",
-        parent: 'HTML',
+        parent: 'front',
         links: [
           {
             label: "JavaScript Tutorial",
@@ -289,7 +317,7 @@ var SkillsElements = {
       data: {
         id: 9,
         title: "JS bibliothèques & Frameworks",
-        parent: "Javascript",
+        parent: "front",
         links: [
           {
             label: "Rejoignez nous les lundi pour étudier AngularJS!",
@@ -321,7 +349,7 @@ var SkillsElements = {
       data: {
         id: 10,
         title: "Maîtrise du développement Frontend",
-        parent: "JS bibliothèques & Frameworks",
+        parent: "front",
         stats: [
           {
             title: "Design",
@@ -335,7 +363,7 @@ var SkillsElements = {
       data: {
         id: 11,
         title: "Programmation serveur",
-        parent: 'HTML',
+        parent: 'back',
         links: [
           {
             label: "Server-side scripting Wiki",
@@ -355,7 +383,7 @@ var SkillsElements = {
       data: {
         id: 12,
         title: "Frameworks serveur",
-        parent: "Programmation serveur",
+        parent: "back",
         links: [
           {
             label: "Comparison of web application frameworks",
@@ -388,6 +416,7 @@ var SkillsElements = {
       data: {
         id: 13,
         title: "Configuration de bases de données",
+        parent: "back",
         links: [
           {
             label: "w3schools.com SQL Tutorial",
@@ -425,7 +454,7 @@ var SkillsElements = {
       data: {
         id: 14,
         title: "Gestion avancée de bases de données",
-        parent: "Configuration de bases de données",
+        parent: "back",
         links: [
           {
             label: "Stored Procedure - Wiki",
@@ -481,7 +510,7 @@ var SkillsElements = {
       data: {
         id: 15,
         title: "Maitrise du développement serveur",
-        parent: "Gestion avancée de bases de données",
+        parent: "back",
         description:
           "You are capable of architecting and building an application's backend to efficiently store and retrieve data.",
         stats: [
@@ -496,7 +525,7 @@ var SkillsElements = {
       data: {
         id: 16,
         title: "Authentication et Authorisations",
-        parent: "Maitrise du développement serveur",
+        parent: "back",
         links: [
           {
             label: "ASP.NET authentication and authorization - CodeProject",
@@ -532,7 +561,7 @@ var SkillsElements = {
       data: {
         id: 17,
         title: "AJAX & APIs",
-        parent: 'Maîtrise du développement Frontend',
+        parent: 'front',
         links: [
           {
             label: "AJAX (programming) Wiki",
@@ -579,6 +608,7 @@ var SkillsElements = {
       data: {
         id: 18,
         title: "Découverte utilisateur",
+        parent:"design",
         maxPoints: 2,
         rankDescriptions: [
           "Vous savez poser les bonnes questions, et utiliser des croquis pour confirmer vos idées",
@@ -614,7 +644,7 @@ var SkillsElements = {
       data: {
         id: 19,
         title: "Design graphique",
-        parent: "Découverte utilisateur",
+        parent: "design",
         maxPoints: 2,
         rankDescriptions: [
           "You can create a balanced, complementary layout with a clear message.",
@@ -653,7 +683,7 @@ var SkillsElements = {
       data: {
         id: 20,
         title: "Outils de design graphique",
-        parent: "Design graphique",
+        parent: "design",
         links: [
           {
             label:
@@ -679,7 +709,7 @@ var SkillsElements = {
       data: {
         id: 21,
         title: "Prototypes",
-        parent:"Découverte utilisateur",
+        parent:"design",
         links: [
           {
             label: "Design Better And Faster With Rapid Prototyping",
@@ -710,7 +740,7 @@ var SkillsElements = {
       data: {
         id: 22,
         title: "Maîtrise de l'expérience utilisateur",
-        parent: "Design graphique",
+        parent: "design",
         description:
           "You are capable of converting project requirements to an attractive design that promotes a pleasant user experience.",
         stats: [
@@ -729,7 +759,7 @@ var SkillsElements = {
       data: {
         id: 23,
         title: "Tests utilisateur",
-        parent:"Maîtrise de l'expérience utilisateur",
+        parent:"design",
         links: [
           {
             label: "My big list of 24 Web Site Usability Testing Tools",
@@ -760,6 +790,7 @@ var SkillsElements = {
       data: {
         id: 24,
         title: "Administration serveur",
+        parent: "devops",
         links: [
           {
             label: "Comparison of web server software Wiki",
@@ -791,7 +822,7 @@ var SkillsElements = {
       data: {
         id: 25,
         title: "Déploiement",
-        parent:"Administration serveur",
+        parent:"devops",
         links: [
           {
             label: "SSL Certificate Installation",
@@ -1179,4 +1210,6 @@ var SkillsElements = {
       }
       
   ]
+
+
 };
