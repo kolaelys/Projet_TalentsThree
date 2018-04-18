@@ -1,19 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
-  
-  function TalentTree(_e){
+  function TalentTree(_e) {
     var e = _e || {};
     var self = this;
 
     //constants for hash generation
     var asciiOffset = 96; //64 for caps, 96 for lower
-    var hashDelimeter = '_';
+    var hashDelimeter = "_";
 
     var numPortraits = 5;
 
     //Intro vs Talent Tree UI state
     self.isOpen = ko.observable(false);
     self.open = function() {
-    self.isOpen(false);
+      self.isOpen(false);
     };
     self.close = function() {
       self.isOpen(true);
@@ -21,17 +20,14 @@ document.addEventListener("DOMContentLoaded", function() {
     self.toggle = function() {
       self.isOpen(!self.isOpen());
     };
-
   }
   ko.applyBindings(new TalentTree());
-  
+
   var cy = cytoscape({
     container: document.getElementById("cy"),
     elements: SkillsElements,
     autounselectify: true,
     style: [
-     
-      
       {
         // noeuds == Compétences
         selector: "node",
@@ -40,70 +36,69 @@ document.addEventListener("DOMContentLoaded", function() {
           shape: "hexagon",
           width: "200px",
           height: "200px",
-          'background-color': '#ad1a66'
-        },
-       
-      },  
+          "background-color": "#ad1a66"
+        }
+      },
       {
         // liens entre les compétences
         selector: "edge",
         style: {
           label: "data(spe)",
           "line-color": "#ad1a66",
-          width: "5px",
-        },
-      },
-      { //les compétences n'ayant pas de sources
-        selector: ".initParent",
-        style:{
-          width: "300px",
-          height:"300px",
-          color:  "green",
-         'background-color': 'red',
-         'border-color': '#a3c60b',
-         'border-width': "10px",
-        },
-      },
-      { 
-        selector: ".front",
-        style:{
-          "line-color": "#42f4e8",
-        },
-      },
-      { 
-        selector: ".back",
-        style:{
-          "line-color": "#415cf4",
-        },
-      },
-      {
-      selector:':nonorphan',
-      style:{
-        'background-color': 'yellow',
-        // 'background-opacity': 0.333
-      }
-      },
-      {
-        selector:':grabbed',
-        style:{
-        'background-opacity': 0.95,
+          width: "5px"
         }
       },
       {
-      selector:':nodes',
-      style:{
-        'background-color': "orange",      
-      }
+        //les compétences n'ayant pas de sources
+        selector: ".initParent",
+        style: {
+          width: "300px",
+          height: "300px",
+          color: "green",
+          "background-color": "red",
+          "border-color": "#a3c60b",
+          "border-width": "10px"
+        }
+      },
+      {
+        selector: ".front",
+        style: {
+          "line-color": "#42f4e8"
+        }
+      },
+      {
+        selector: ".back",
+        style: {
+          "line-color": "#415cf4"
+        }
+      },
+      {
+        selector: ":nonorphan",
+        style: {
+          "background-color": "yellow"
+          // 'background-opacity': 0.333
+        }
+      },
+      {
+        selector: ":grabbed",
+        style: {
+          "background-opacity": 0.95
+        }
+      },
+      {
+        selector: ":nodes",
+        style: {
+          "background-color": "orange"
+        }
       }
     ],
     layout: {
-     
-      name: 'cose-bilkent',// forme du Graphique
+      name: "cose-bilkent", // forme du Graphique
       animate: false,
       randomize: false,
-      
+
       refresh: 3,
-      boundingBox: { x:9, y:6, w:2, h:20 },
+      boundingBox: { x: 9, y: 6, w: 2, h: 20 },
       nodeDimensionsIncludeLabels: true,
       avoidOverlap: false,
       handleDisconnected: false,
@@ -112,43 +107,44 @@ document.addEventListener("DOMContentLoaded", function() {
       initialEnergyOnIncremental: 3.4,
       padding: 35,
       fit: true,
-      alignment: function( node ){ return { x: 10, y: 10 } },
-      // position: function(ele) { 
-      //   if (ele.data('title') === 'HTML') { 
-      //     return { x:1.5  , y: 5 }; 
-      //   } 
-      //   else if (ele.data('title') === 'Configuration de bases de données') { 
-      //     return { row:1.5  , col: 2 }; 
-      //   } 
-      //   else if (ele.data('title') === 'Découverte utilisateur') { 
-      //     return { row:1.5  , col: 4 }; 
-      //   } 
-      //   else if (ele.data('title') === 'Administration serveur') { 
-      //     return { row:1.5  , col: 6 }; 
-      //   } 
+      alignment: function(node) {
+        return { x: 10, y: 10 };
+      },
+      // position: function(ele) {
+      //   if (ele.data('title') === 'HTML') {
+      //     return { x:1.5  , y: 5 };
+      //   }
+      //   else if (ele.data('title') === 'Configuration de bases de données') {
+      //     return { row:1.5  , col: 2 };
+      //   }
+      //   else if (ele.data('title') === 'Découverte utilisateur') {
+      //     return { row:1.5  , col: 4 };
+      //   }
+      //   else if (ele.data('title') === 'Administration serveur') {
+      //     return { row:1.5  , col: 6 };
+      //   }
       // },
       nodeSpacing: function nodeSpacing(node) {
         return 20;
-      },
-    },
+      }
+    }
   });
 
   $("#cy").toggle();
 
-  $("#close").click(function(){
+  $("#close").click(function() {
     $("#cy").toggle();
-  })
-  $("#open").click(function(){
+  });
+  $("#open").click(function() {
     $("#cy").toggle();
-  })
- 
+  });
 
   cy.on("mouseover", function(event) {
     //Afficher les informations au survol des compétences
 
     var evtTarget = event.target;
 
-    if (evtTarget !==cy) {
+    if (evtTarget !== cy) {
       var description = event.target.data("description");
       var rankDescription = event.target.data("rankDescriptions");
       var links = [event.target.data("links")];
@@ -158,7 +154,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
       console.log(stats.length);
       $("#description").html(` description:  ${description} <br/>`);
-      $("#rankDescription").html(`<br/> rankDescription: ${rankDescription} <br/>`);
+      $("#rankDescription").html(
+        `<br/> rankDescription: ${rankDescription} <br/>`
+      );
       $("#maxPoint").html(`Points Max:  ${maxPoint}`);
 
       stats.forEach(element => {
@@ -194,62 +192,141 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(link.url);
             $("#links").html(`label:  ${link.label}  <br/> url: ${link.url}`);
           }
-          
+
           i++;
         }
       });
     }
+  });
+
+  cy.ready(function() {
+    var initParent = [];
+    var html = cy.filter("node[title = 'HTML']");
+    var cbd = cy.filter("node[title ='Configuration de bases de données']");
+    var du = cy.filter("node[title = 'Découverte utilisateur']");
+    var as = cy.filter("node[title = 'Administration serveur']");
+    initParent.push(html, cbd, du, as);
+    console.log(initParent);
+
+    for (var i = 0; i < initParent.length; i++) {
+      initParent[i].addClass("initParent");
+    }
+    var frontEdges = [cy.filter("edge[spe = 'Front']")];
+    var backEdges = [cy.filter("edge[spe = 'Back']")];
+
+    for (var i = 0; i < frontEdges.length; i++) {
+      frontEdges[i].addClass("front");
+    }
+    for (var i = 0; i < backEdges.length; i++) {
+      backEdges[i].addClass("back");
+    }
+  });
+
+
+  cy.on("tap", "node", function() {
+    if (this.scratch().restData == null) {
+      //     // Save node data and remove
+      this.scratch({
+        restData: this.successors().targets().remove(),
+        restEdge: this.connectedEdges(),
+        restSource: this,
+      });
+      console.log(this.scratch().restSource);
+    
+        
  
-});
+      var delay = 0;
+      var duration = 300;
+     
+      this.scratch().restData.restore().delay(delay, function() {})
+      .animate(
+          {
+            position: this.sources().position(),
+            css: {
+              "border-width": 0,
+              opacity: 0
+            }
+          },
+          {
+            duration: duration,
+            complete: function() {
+            }
+          }
+        )
+        this.scratch().restSource.delay(delay, function() {})
+        .animate(
+            {
+              css: {
+                transform: scale(3),
+                "border-width": 1,
+                opacity: 1
+              }
+            },
+            {
+              duration: duration,
+              complete: function() {
+              }
+            }
+          )
+      
+      
+    } else {
+
+        var delay = 0;
+        var duration = 300;
+        this.scratch().restEdge.delay(delay, function() {})
+        .animate(
+          {
+            css: {
+              "border-width": 0,
+              opacity: 1
+            }
+          },
+          {
+            duration: duration,
+            complete: function() {
+            //this.scratch().restEdge.remove();
+            }
+          }
+        );
+      // Restore the removed nodes from saved data
 
 
-cy.ready(function(){
-  var initParent = [];
-  var html= cy.filter("node[title = 'HTML']");
-  var cbd = cy.filter("node[title ='Configuration de bases de données']");
-  var du = cy.filter("node[title = 'Découverte utilisateur']");
-  var as= cy.filter("node[title = 'Administration serveur']");
-  initParent.push(html, cbd, du, as);
-  console.log(initParent);
-  
-  for(var i =0; i<initParent.length; i++){
-    initParent[i].addClass('initParent');
+    this.scratch().restData.delay(delay, function() {})
+        .animate(
+          {
+            position: this.targets().position(),
+            css: {
+              "border-width": 0,
+              opacity: 1
+            }
+          },
+          {
+            duration: duration,
+            complete: function() {
+            //this.scratch().restEdge.remove();
+          }
+        }
+        );
+      // Restore the removed nodes from saved data
+
+      this.scratch({
+        restData: null
+      });
   }
-  var frontEdges = [cy.filter("edge[spe = 'Front']")];
-  var backEdges =[cy.filter("edge[spe = 'Back']")];  
+  
+    /* }
+    }),
+     {
+      duration: duration,
+      complete: function(){
+      } 
+    }
 
-  for(var i =0; i<frontEdges.length; i++){
-    frontEdges[i].addClass("front");
-  }
-  for(var i =0; i<backEdges.length; i++){
-    backEdges[i].addClass("back");
-  }
-  
-  
-  
-})
-cy.on('tap', 'node', function(){
-  
-   if (this.scratch().restData == null) {
-
-    var targets=this.successors().targets()
-//     // Save node data and remove
-     this.scratch({
-       restData: this.successors().targets().remove()
-     })
-}
-
-  else {
-    // Restore the removed nodes from saved data
-    this.scratch().restData.restore();
-    this.scratch({
-         restData: null
-    });
-
-   }
-  
-  
-/*
+    delay += duration;
+    // for
+ */
+    /*
   var nodes = this;
   var tapped = nodes;
   var child = [];
@@ -387,5 +464,5 @@ nodes.addClass('parent');
  /*  })
   }}
  */
-}); // on tap
+  }); // on tap
 });

@@ -155,4 +155,20 @@ input.h2 {
   -ms-transform: scale(0);
   transform: scale(0); }
 
+.fadeIn {
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0); }
+
+.fadeOut {
+  animation: "fadeOut" 5s ease-in; }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 /*# sourceMappingURL=main.css.map */
