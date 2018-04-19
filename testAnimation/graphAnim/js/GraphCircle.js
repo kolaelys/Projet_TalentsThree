@@ -110,27 +110,14 @@ document.addEventListener("DOMContentLoaded", function() {
       alignment: function(node) {
         return { x: 10, y: 10 };
       },
-      // position: function(ele) {
-      //   if (ele.data('title') === 'HTML') {
-      //     return { x:1.5  , y: 5 };
-      //   }
-      //   else if (ele.data('title') === 'Configuration de bases de données') {
-      //     return { row:1.5  , col: 2 };
-      //   }
-      //   else if (ele.data('title') === 'Découverte utilisateur') {
-      //     return { row:1.5  , col: 4 };
-      //   }
-      //   else if (ele.data('title') === 'Administration serveur') {
-      //     return { row:1.5  , col: 6 };
-      //   }
-      // },
+
       nodeSpacing: function nodeSpacing(node) {
         return 20;
       }
     }
   });
 
-  $("#cy").toggle();
+  // $("#cy").toggle();
 
   $("#close").click(function() {
     $("#cy").toggle();
@@ -152,50 +139,63 @@ document.addEventListener("DOMContentLoaded", function() {
       var stats = [event.target.data("stats")];
       var statistique = [];
 
-      console.log(stats.length);
-      $("#description").html(` description:  ${description} <br/>`);
-      $("#rankDescription").html(
-        `<br/> rankDescription: ${rankDescription} <br/>`
-      );
-      $("#maxPoint").html(`Points Max:  ${maxPoint}`);
-
-      stats.forEach(element => {
-        //Parcourir les stats pour en afficher l'ensemble: stats = stats[][]
-        var j = 0;
-        var i = 0;
-        var statI = stats[i].length;
-        var stat = {};
-
-        while (i < stats.length) {
-          for (j = 0; j < statI; j++) {
-            stat.title = stats[i][j].title;
-            console.log(stat.title);
-            stat.value = stats[i][j].value;
-            console.log(stat.value);
+      if (typeof description != "undefined") {
+        $("#description").html(` description:  ${description} <br/>`);
+      } else if (!rankDescription == "undefined") {
+        $("#rankDescription").html(
+          `<br/> rankDescription: ${rankDescription} <br/>`
+        );
+      }
+      if (typeof maxPoint != "undefined") {
+        $("#maxPoint").html(`Points Max:  ${maxPoint}`);
+      }
+      if (typeof(stats.length)  != ['undefined'])
+       {
+        stats.forEach(element => {
+          //Parcourir les stats pour en afficher l'ensemble: stats = stats[][]
+          var j = 0;
+          var i = 0;
+         
+          var stat = {};
+if(typeof(stats[i]) != 'undefined'){
+          while (i < stats.length) {
+            
+              var statI = stats[i].length;
+            for (j = 0; j < statI; j++) {
+              stat.title = stats[i][j].title;
+              console.log(stat.title);
+              stat.value = stats[i][j].value;
+              console.log(stat.value);
+            }
+            i++;
+            $("#stats").html(stat.title + stat.value);
           }
-          i++;
-        }
-        console.log("statI:" + statI);
-        $("#stats").html(stat.title + stat.value);
-      });
+        
+        
+        };
+      })
+    }
+      if (typeof(links.length)  != ['undefined']) {
+        links.forEach(element => {
+          //Obtenir les labels et liens
+          var link = {};
+          var i = 0;
+          while (i < links.length) {
+            if(typeof(links[i]) != 'undefined'){
+            for (var j = 0; j < links[i].length; j++) {
+              link.label = links[i][j].label;
+              console.log("label: " + link.label);
 
-      links.forEach(element => {
-        //Obtenir les labels et liens
-        var link = {};
-        var i = 0;
-        while (i < links.length) {
-          for (var j = 0; j < links[i].length; j++) {
-            link.label = links[i][j].label;
-            console.log("label: " + link.label);
-
-            link.url = links[i][j].url;
-            console.log(link.url);
-            $("#links").html(`label:  ${link.label}  <br/> url: ${link.url}`);
+              link.url = links[i][j].url;
+              console.log(link.url);
+              $("#links").html(`label:  ${link.label}  <br/> url: ${link.url}`);
+            }
           }
 
-          i++;
-        }
-      });
+            i++;
+          }
+        });
+      }
     }
   });
 
@@ -222,24 +222,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 
-
   cy.on("tap", "node", function() {
     if (this.scratch().restData == null) {
       //     // Save node data and remove
       this.scratch({
-        restData: this.successors().targets().remove(),
+        restData: this.successors()
+          .targets()
+          .remove(),
         restEdge: this.connectedEdges(),
-        restSource: this,
+        restSource: this
       });
       console.log(this.scratch().restSource);
-    
-        
- 
+
       var delay = 0;
       var duration = 300;
-     
-      this.scratch().restData.restore().delay(delay, function() {})
-      .animate(
+
+      this.scratch()
+        .restData.restore()
+        .delay(delay, function() {})
+        .animate(
           {
             position: this.sources().position(),
             css: {
@@ -249,32 +250,27 @@ document.addEventListener("DOMContentLoaded", function() {
           },
           {
             duration: duration,
-            complete: function() {
-            }
+            complete: function() {}
           }
-        )
-        this.scratch().restSource.delay(delay, function() {})
+        );
+      this.scratch()
+        .restSource.restore()
+        .delay(delay, function() {})
         .animate(
-            {
-              css: {
-                transform: scale(3),
-                "border-width": 1,
-                opacity: 1
-              }
-            },
-            {
-              duration: duration,
-              complete: function() {
-              }
+          {
+            css: {
+              "border-width": 1,
+              opacity: 1
             }
-          )
-      
-      
+          },
+          {
+            duration: duration,
+            complete: function() {}
+          }
+        );
     } else {
-
-        var delay = 0;
-        var duration = 300;
-        this.scratch().restEdge.delay(delay, function() {})
+      this.scratch()
+        .restData.delay(delay, function() {})
         .animate(
           {
             css: {
@@ -285,184 +281,14 @@ document.addEventListener("DOMContentLoaded", function() {
           {
             duration: duration,
             complete: function() {
-            //this.scratch().restEdge.remove();
+              //this.scratch().restEdge.restore();
             }
           }
         );
       // Restore the removed nodes from saved data
-
-
-    this.scratch().restData.delay(delay, function() {})
-        .animate(
-          {
-            position: this.targets().position(),
-            css: {
-              "border-width": 0,
-              opacity: 1
-            }
-          },
-          {
-            duration: duration,
-            complete: function() {
-            //this.scratch().restEdge.remove();
-          }
-        }
-        );
-      // Restore the removed nodes from saved data
-
       this.scratch({
         restData: null
       });
-  }
-  
-    /* }
-    }),
-     {
-      duration: duration,
-      complete: function(){
-      } 
     }
-
-    delay += duration;
-    // for
- */
-    /*
-  var nodes = this;
-  var tapped = nodes;
-  var child = [];
-    // If the element is set
-    // If the element is set
-nodes.addClass('parent');
- if(!this.hasClass('clicked')){ 
-  
-  for(;;){
-    var connectedEdges = nodes.connectedEdges(function(el){
-      
-      return !el.target().anySame( nodes );
-    });
-
-    var connectedTargets = connectedEdges.targets();
-
-    Array.prototype.push.apply(child, connectedTargets);
-    nodes = connectedTargets;
-    var saveNodes=localStorage.getItem(child, connectedTargets); 
-
-    if( nodes.empty() ){ 
-      break;
-    }
-  }
-  var delay = 0;
-  var duration = 300;
-
-
-
-   
-  for( var i = child.length -1; i >= 0; i-- ){ (function(){
-
-    localStorage.setItem(child, connectedTargets);
-
-     //Check Save Nodes
-    // child.forEach(function(saveNodes) {
-    // console.log(saveNodes);
-    // })
-
-
-    var thischild = child[i];
-    var parent = thischild.connectedEdges(function(el){
-      return el.target().same(thischild);
-    }).source();
-
-
-    thischild.delay( delay, function(){
-      parent.addClass('eating');
-    } ).animate({
-      position: parent.position(),
-      css: {
-        'width': 10,
-        'height': 10,
-        'border-width': 0,
-        'opacity': 0
-      }
-    },
-     {
-      duration: duration,
-      complete: function(){
-        thischild.remove();
-        parent.addClass('parentNode');
-      }
-    });
-
-    delay += duration;
-  })(); } // for
-  this.addClass('clicked');
-  
-    // console.log(nodes);
-    // var parent = child.connectedEdges(function(el){
-    //   return el.target().same(thischild);
-    // }).source();
-    // console.log(parent);  
-  }
- 
-    else{
-      
-      nodes= localStorage.getItem(child, connectedTargets);
- 
-  for(;;){
-    var connectedEdges = this.connectedEdges(function(el){
-      
-      return el.target().anySame( nodes );
-    });
-
-    var connectedTargets = connectedEdges.targets();
-
-    Array.prototype.push(child, connectedTargets);
-    node = connectedTargets;
-   
-  }
-  var delay = 0;
-  var duration = 300;
-
-       child.forEach(function(nodes) {
-         var connectedEdges = nodes;
-         var connectedTargets= connectedEdges.targets();
-         console.log("connected: ");
-         console.log(connectedTargets);
-         Array.prototype.push(child, connectedTargets);
-          console.log(child)
-          })
-     this.connectedEdges(function(el){
-       return el.target().anySame(connectedTargets );
-     });
-
-     for( var i = 0; i< child.length; i++ ){ (function(){
-
-      var thischild = child[i];
-      var parent = thischild.connectedEdges(function(el){
-        return el.target().same(thischild);
-      }).source();
-   
-  
-      this.delay( delay, function(){
-        parent.classList.remove('eating');
-      } ).animate({
-        position: parent.position(),
-        css: {
-          'width': 10,
-          'height': 10,
-          'border-width': 0,
-          'opacity': 0.5
-        }
-     },
-      
-       {
-        duration: duration,
-      }); 
-  
-      delay += duration;
-  // for
-
- /*  })
-  }}
- */
   }); // on tap
 });
