@@ -162,52 +162,66 @@ document.addEventListener("DOMContentLoaded", function() {
       var stats = [event.target.data("stats")];
       var statistique = [];
 
-      console.log(stats.length);
-      $("#description").html(` description:  ${description} <br/>`);
-      $("#rankDescription").html(
-        `<br/> rankDescription: ${rankDescription} <br/>`
-      );
-      $("#maxPoint").html(`Points Max:  ${maxPoint}`);
-
-      stats.forEach(element => {
-        //Parcourir les stats pour en afficher l'ensemble: stats = stats[][]
-        var j = 0;
-        var i = 0;
-        var statI = stats[i].length;
-        var stat = {};
-
-        while (i < stats.length) {
-          for (j = 0; j < statI; j++) {
-            stat.title = stats[i][j].title;
-            console.log(stat.title);
-            stat.value = stats[i][j].value;
-            console.log(stat.value);
+      if (typeof description != "undefined") {
+        $("#description").html(` description:  ${description} <br/>`);
+      } else if (!rankDescription == "undefined") {
+        $("#rankDescription").html(
+          `<br/> rankDescription: ${rankDescription} <br/>`
+        );
+      }
+      if (typeof maxPoint != "undefined") {
+        $("#maxPoint").html(`Points Max:  ${maxPoint}`);
+      }
+      if (typeof(stats.length)  != ['undefined'])
+       {
+        stats.forEach(element => {
+          //Parcourir les stats pour en afficher l'ensemble: stats = stats[][]
+          var j = 0;
+          var i = 0;
+         
+          var stat = {};
+if(typeof(stats[i]) != 'undefined'){
+          while (i < stats.length) {
+            
+              var statI = stats[i].length;
+            for (j = 0; j < statI; j++) {
+              stat.title = stats[i][j].title;
+              console.log(stat.title);
+              stat.value = stats[i][j].value;
+              console.log(stat.value);
+            }
+            i++;
+            $("#stats").html(stat.title + stat.value);
           }
-          i++;
-        }
-        console.log("statI:" + statI);
-        $("#stats").html(stat.title + stat.value);
-      });
+        
+        
+        };
+      })
+    }
+      if (typeof(links.length)  != ['undefined']) {
+        links.forEach(element => {
+          //Obtenir les labels et liens
+          var link = {};
+          var i = 0;
+          while (i < links.length) {
+            if(typeof(links[i]) != 'undefined'){
+            for (var j = 0; j < links[i].length; j++) {
+              link.label = links[i][j].label;
+              console.log("label: " + link.label);
 
-      links.forEach(element => {
-        //Obtenir les labels et liens
-        var link = {};
-        var i = 0;
-        while (i < links.length) {
-          for (var j = 0; j < links[i].length; j++) {
-            link.label = links[i][j].label;
-            console.log("label: " + link.label);
-
-            link.url = links[i][j].url;
-            console.log(link.url);
-            $("#links").html(`label:  ${link.label}  <br/> url: ${link.url}`);
+              link.url = links[i][j].url;
+              console.log(link.url);
+              $("#links").html(`label:  ${link.label}  <br/> url: ${link.url}`);
+            }
           }
 
-          i++;
-        }
-      });
+            i++;
+          }
+        });
+      }
     }
   });
+
 
   var initParent = [];
   cy.ready(function() {
