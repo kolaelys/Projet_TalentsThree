@@ -21,53 +21,71 @@
 
 <style>
     #cy {
-        width: 100%;
+        width: 80%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 20%;
+        z-index: 10;
+        background: rgba(184, 188, 188, 0.5)
+    }
+    #menu {
+        width: 20%;
         height: 100%;
         position: absolute;
         top: 0px;
         left: 0px;
-        z-index: 10;
-        background: rgba(184, 188, 188, 0.5)
+        z-index: 1000;
+        background: rgba(240, 0, 0, 0.3)
     }
 </style>
 
 <body>
     <div id="cy"></div>
 
-        <div class="ltIE9-hide">
-            <div data-bind="css: { open: isOpen }" class="page">
-                <header>
-                    <img id="close"  data-bind="click: toggle" src="img/logo.png" class="logo">
-                </header>
-                <div class="intro">
-                    <div class="content">
-                        <h2>Un arbre de talents
-                            <br /> pour développeurs web</h2>
-                        <p></p>
-                        <h3></h3>
-                        <button  id="open" data-bind="click: toggle">Ouvrir l'arbre de talents &raquo;</button>
-                    </div>
+    <!-- <div class="ltIE9-hide">
+        <div data-bind="css: { open: isOpen }" class="page">
+            <header>
+                <img id="close"  data-bind="click: toggle" src="img/logo.png" class="logo">
+            </header>
+            <div class="intro">
+                <div class="content">
+                    <h2>Un arbre de talents
+                        <br /> pour développeurs web</h2>
+                    <p></p>
+                    <h3></h3>
+                    <button  id="open" data-bind="click: toggle">Ouvrir l'arbre de talents &raquo;</button>
                 </div>
-
             </div>
 
         </div>
-    
-    <div id="info">
-        <div id="description"></div>
-        <div id="rankDescription"></div>
-        <div id="links"></div>
-        <div id="maxPoint"></div>
-        <div id="stats"></div>
+
+    </div> -->
+    <div id="menu">
+      <button id="changeLayout">Change Layout</button>
+
+      <br>
+      <div id="info">
+          <div id="description"></div>
+          <div id="rankDescription"></div>
+          <div id="links"></div>
+          <div id="maxPoint"></div>
+          <div id="stats"></div>
+      </div>
+
+
+  
+
     </div>
 
+
     <script src="js/jquery.min.js"></script>
-    <script src="js/knockout.min.js"></script>
-    <script src="js/utils.js"></script>
+    <!-- <script src="js/knockout.min.js"></script> -->
+    <!-- <script src="js/utils.js"></script> -->
     <!-- <script src="CytoData.json"></script> -->
     <!-- <script src="testCytoscape.js"></script> -->
     <!--<script src='gly_elements.js'></script>-->
-    <script src="js/jquery.min.js"></script>
+    <!-- <script src="js/jquery.min.js"></script> -->
     <!-- <script src="js/knockout.min.js"></script> 
 	<script src="js/utils.js"></script>
 	<script src="js/tft.dnd.data.js"></script>
