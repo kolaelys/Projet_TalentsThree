@@ -1,4 +1,6 @@
+
 document.addEventListener("DOMContentLoaded", function() {
+
   // function TalentTree(_e) {
   //   var e = _e || {};
   //   var self = this;
@@ -22,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
   //   };
   // }
   // ko.applyBindings(new TalentTree());
-
 
   var layoutType = 0;
 
@@ -49,11 +50,11 @@ document.addEventListener("DOMContentLoaded", function() {
           // label: "data(spe)",
           "line-color": "#ad1a66",
           // width: "5px",
-          "target-arrow-shape": 'triangle',
-          'width': 8,
-          'line-color': '#888',
-          'target-arrow-color': '#888',
-          'source-arrow-color': '#888',
+          "target-arrow-shape": "triangle",
+          width: 8,
+          "line-color": "#888",
+          "target-arrow-color": "#888",
+          "source-arrow-color": "#888"
         }
       },
       {
@@ -69,17 +70,17 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       },
       {
-        selector: '$node > node',
+        selector: "$node > node",
         css: {
-          'padding-top': '10px',
-          'padding-left': '10px',
-          'padding-bottom': '10px',
-          'padding-right': '10px',
-          'text-valign': 'top',
-          'text-halign': 'center',
+          "padding-top": "10px",
+          "padding-left": "10px",
+          "padding-bottom": "10px",
+          "padding-right": "10px",
+          "text-valign": "top",
+          "text-halign": "center"
         }
       },
-            {
+      {
         selector: "#front",
         style: {
           "background-color": "#42f4e8"
@@ -96,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function() {
         style: {
           "background-color": "#416614"
         }
-      },      
+      },
       {
         selector: "#design",
         style: {
@@ -135,8 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
     ],
-    layout:layoutList[layoutType] 
-    
+    layout: layoutList[layoutType]
   });
 
   // setLayout();
@@ -149,14 +149,15 @@ document.addEventListener("DOMContentLoaded", function() {
     $("#cy").toggle();
   });
 
-  cy.on("mouseover", function(event) {
+  cy.on("click", function(event) {
     //Afficher les informations au survol des compétences
 
     var evtTarget = event.target;
 
     if (evtTarget !== cy) {
       var description = event.target.data("description");
-      var rankDescription = event.target.data("rankDescriptions");
+      var rankDescriptions = event.target.data("rankDescriptions");
+      console.log(rankDescriptions)
       var links = [event.target.data("links")];
       var maxPoint = event.target.data("maxPoints");
       var stats = [event.target.data("stats")];
@@ -164,64 +165,77 @@ document.addEventListener("DOMContentLoaded", function() {
 
       if (typeof description != "undefined") {
         $("#description").html(` description:  ${description} <br/>`);
-      } else if (!rankDescription == "undefined") {
-        $("#rankDescription").html(
-          `<br/> rankDescription: ${rankDescription} <br/>`
-        );
-      }
+      } 
+
+
+      //RANK
+
+      if (typeof rankDescriptions != ["undefined"]) {
+      
+        for(var i=0; i<rankDescriptions.length; i++){
+          
+          var rankDescription = [rankDescriptions[i]]
+          console.log(rankDescription);
+          rankDescriptions.forEach(function(){
+          $("#rankDescriptions").html(` Votre évolution: <ul><li><input type="checkbox"/> ${rankDescriptions}</li><br/></ul>`);
+        })
+        }
+        
+        }
+
+      //END RANK
+
+
       if (typeof maxPoint != "undefined") {
         $("#maxPoint").html(`Points Max:  ${maxPoint}`);
       }
-      if (typeof(stats.length)  != ['undefined'])
-       {
+      if (typeof stats.length != ["undefined"]) {
         stats.forEach(element => {
           //Parcourir les stats pour en afficher l'ensemble: stats = stats[][]
           var j = 0;
           var i = 0;
-         
+
           var stat = {};
-if(typeof(stats[i]) != 'undefined'){
-          while (i < stats.length) {
-            
+          if (typeof stats[i] != "undefined") {
+            while (i < stats.length) {
               var statI = stats[i].length;
-            for (j = 0; j < statI; j++) {
-              stat.title = stats[i][j].title;
-              console.log(stat.title);
-              stat.value = stats[i][j].value;
-              console.log(stat.value);
+              for (j = 0; j < statI; j++) {
+                stat.title = stats[i][j].title;
+                stat.value = stats[i][j].value;
+              }
+              i++;
+              $("#stats").html(stat.title + stat.value);
             }
-            i++;
-            $("#stats").html(stat.title + stat.value);
           }
-        
-        
-        };
-      })
-    }
-      if (typeof(links.length)  != ['undefined']) {
+        });
+      }
+      if (typeof links.length != ["undefined"]) {
         links.forEach(element => {
           //Obtenir les labels et liens
           var link = {};
           var i = 0;
           while (i < links.length) {
-            if(typeof(links[i]) != 'undefined'){
-            for (var j = 0; j < links[i].length; j++) {
-              link.label = links[i][j].label;
-              console.log("label: " + link.label);
+            if (typeof links[i] != "undefined") {
+              for (var j = 0; j < links[i].length; j++) {
+                link.label = links[i][j].label;
+                console.log("label: " + link.label);
 
-              link.url = links[i][j].url;
-              console.log(link.url);
-              $("#links").html(`label:  ${link.label}  <br/> url: ${link.url}`);
+                link.url = links[i][j].url;
+                console.log(link.url);
+                $("#links").html(
+                  `label:  ${link.label}  <br/> url: ${link.url}`
+                );
+              }
             }
-          }
 
             i++;
           }
         });
       }
     }
-  });
+    $("#mainModal").toggle(true);
 
+  });
 
   var initParent = [];
   cy.ready(function() {
@@ -246,118 +260,103 @@ if(typeof(stats[i]) != 'undefined'){
     }
   });
 
-var removed;
-  cy.on("tap", "node", function() {
+  var removed;
+  /* cy.on("tap", "node", function() {
     var ModalDescription = event.target.data("description");
     var ModalrankDescription = event.target.data("rankDescriptions");
     var Modallinks = [event.target.data("links")];
     var ModalmaxPoint = event.target.data("maxPoints");
     var Modalstats = [event.target.data("stats")];
     var Modalstatistique = [];
+*/
 
-    
-     
-    // if (this.scratch().restData == null) {
-    //   //     // Save node data and remove
-    //   this.scratch({
-    //     restData: this.successors().targets().remove(),
-    //     restEdge: this.connectedEdges(),
-    //     restSource: this,SkillsElements
-    //   });
-    //   console.log(this.scratch().restSource);
-    
-        
- 
-    //   var delay = 0;
-    //   var duration = 300;
-    //   this.scratch().restData.restore().delay(delay, function() {})
-    //   .animate(
-    //       {
-    //         position: this.sources().position(),
-    //         css: {
-    //           "border-width": 0,
-    //           opacity: 0
-    //         }
-    //       },
-    //       {
-    //         duration: duration,
-    //         complete: function() {
-    //         }
-    //       }
-    //     )
-    //     this.scratch().restSource.delay(delay, function() {})
-    //     .animate(
-    //         {
-    //           css: {
-    //             transform: scale(3),
-    //             "border-width": 1,
-    //             opacity: 1
-    //           }
-    //         },
-    //         {
-    //           duration: duration,
-    //           complete: function() {
-    //           }
-    //         }
-    //       )
-      
-      
-    // } else {
+  // if (this.scratch().restData == null) {
+  //   //     // Save node data and remove
+  //   this.scratch({
+  //     restData: this.successors().targets().remove(),
+  //     restEdge: this.connectedEdges(),
+  //     restSource: this,SkillsElements
+  //   });
+  //   console.log(this.scratch().restSource);
 
-    //     var delay = 0;
-    //     var duration = 300;
-    //     this.scratch().restEdge.delay(delay, function() {})
-    //     .animate(
-    //       {
-    //         css: {
-    //           "border-width": 0,
-    //           opacity: 1
-    //         }
-    //       },
-    //       {
-    //         duration: duration,
-    //         complete: function() {
-    //         //this.scratch().restEdge.remove();
-    //         }
-    //       }
-    //     );
-    //   // Restore the removed nodes from saved data
+  //   var delay = 0;
+  //   var duration = 300;
+  //   this.scratch().restData.restore().delay(delay, function() {})
+  //   .animate(
+  //       {
+  //         position: this.sources().position(),
+  //         css: {
+  //           "border-width": 0,
+  //           opacity: 0
+  //         }
+  //       },
+  //       {
+  //         duration: duration,
+  //         complete: function() {
+  //         }
+  //       }
+  //     )
+  //     this.scratch().restSource.delay(delay, function() {})
+  //     .animate(
+  //         {
+  //           css: {
+  //             transform: scale(3),
+  //             "border-width": 1,
+  //             opacity: 1
+  //           }
+  //         },
+  //         {
+  //           duration: duration,
+  //           complete: function() {
+  //           }
+  //         }
+  //       )
 
+  // } else {
 
-    // this.scratch().restData.delay(delay, function() {})
-    //     .animate(
-    //       {
-    //         position: this.targets().position(),
-    //         css: {
-    //           "border-width": 0,
-    //           opacity: 1
-    //         }
-    //       },
-    //       {
-    //         duration: duration,
-    //         complete: function() {
-    //         //this.scratch().restEdge.remove();
-    //       }
-    //     }
-    //     );
-    //   // Restore the removed nodes from saved data
+  //     var delay = 0;
+  //     var duration = 300;
+  //     this.scratch().restEdge.delay(delay, function() {})
+  //     .animate(
+  //       {
+  //         css: {
+  //           "border-width": 0,
+  //           opacity: 1
+  //         }
+  //       },
+  //       {
+  //         duration: duration,
+  //         complete: function() {
+  //         //this.scratch().restEdge.remove();
+  //         }
+  //       }
+  //     );
+  //   // Restore the removed nodes from saved data
 
-    //   this.scratch({
-    //     restData: null
-    //   });
-    //}
+  // this.scratch().restData.delay(delay, function() {})
+  //     .animate(
+  //       {
+  //         position: this.targets().position(),
+  //         css: {
+  //           "border-width": 0,
+  //           opacity: 1
+  //         }
+  //       },
+  //       {
+  //         duration: duration,
+  //         complete: function() {
+  //         //this.scratch().restEdge.remove();
+  //       }
+  //     }
+  //     );
+  //   // Restore the removed nodes from saved data
 
+  //   this.scratch({
+  //     restData: null
+  //   });
+  //}
 
-
-
-
-
-
-
-
-
-  
-    /* }
+  /* }
     }),
      {
       duration: duration,
@@ -368,7 +367,7 @@ var removed;
     delay += duration;
     // for
  */
-    /*
+  /*
   var nodes = this;
   var tapped = nodes;
   var child = [];
@@ -506,35 +505,25 @@ nodes.addClass('parent');
  /*  })
   }}
  */
-  }); // on tap
+  //}); // on tap
 
+  function setNextLayout() {}
 
-  
-  function setNextLayout(){
- 
-  };
+  document.getElementById("changeLayout").addEventListener("click", function() {
+    // Choose iterate on layout type
+    layoutType = (layoutType + 1) % layoutList.length;
 
-  document.getElementById('changeLayout').addEventListener("click", function(){
-        // Choose iterate on layout type
-        layoutType = (layoutType + 1)%layoutList.length ;
+    var layout = cy.layout(layoutList[layoutType]);
 
-        var layout = cy.layout(layoutList[layoutType]);
-      
-        layout.run();
+    layout.run();
   });
-
 });
-
-
-
-
-
 
 // List of layouts to choose from
 let layoutList = [
-  {    
-    name: "cose-bilkent", 
-    animate: true,
+  {
+    name: "cose-bilkent",
+    animate: true
 
     // refresh: 3,
     // boundingBox: { x: 9, y: 6, w: 2, h: 20 },
@@ -543,7 +532,7 @@ let layoutList = [
     // handleDisconnected: true,
     // idealEdgeLength: 10.4,
     // edgeElasticity: 0.1,
-     // Gravity range (constant) for compounds
+    // Gravity range (constant) for compounds
     // gravityRangeCompound: 2999.5,
     // Gravity force (constant) for compounds
     // gravityCompound: 0,
@@ -576,11 +565,11 @@ let layoutList = [
     // }
   },
   {
-    name: 'circle'
+    name: "circle"
   },
   {
-    name: 'grid',
-    
+    name: "grid"
+
     // fit: true, // whether to fit the viewport to the graph
     // padding: 30, // the padding on fit
     // boundingBox: undefined, // constrain layout bounds; { x1, y1, x2, y2 } or { x1, y1, w, h }
@@ -598,17 +587,15 @@ let layoutList = [
     // animateFilter: function ( node, i ){ return true; }, // a function that determines whether the node should be animated.  All nodes animated by default on animate enabled.  Non-animated nodes are positioned immediately when the layout starts
     // ready: undefined, // callback on layoutready
     // stop: undefined, // callback on layoutstop
-    // transform: function (node, position ){ return position; } // transform a given node position. Useful for changing flow direction in discrete layouts 
-  
-  
+    // transform: function (node, position ){ return position; } // transform a given node position. Useful for changing flow direction in discrete layouts
   },
   {
-    name: 'breadthfirst',
+    name: "breadthfirst",
 
     // fit: true, // whether to fit the viewport to the graph
     directed: true, // whether the tree is directed downwards (or edges can point in any direction if false)
     // padding: 30, // padding on fit
-    circle: true, // put depths in concentric circles if true, put depths top down if false
+    circle: true // put depths in concentric circles if true, put depths top down if false
     // spacingFactor: 1.75, // positive spacing factor, larger => more space between nodes (N.B. n/a if causes overlap)
     // boundingBox: undefined, // constrain layout bounds; { x1, y1, x2, y2 } or { x1, y1, w, h }
     // avoidOverlap: true, // prevents node overlap, may overflow boundingBox if not enough space
@@ -624,7 +611,7 @@ let layoutList = [
     // transform: function (node, position ){ return position; }
   },
   {
-    name: 'concentric',
+    name: "concentric",
 
     // fit: true, // whether to fit the viewport to the graph
     // padding: 30, // the padding on fit
@@ -645,13 +632,23 @@ let layoutList = [
     // levelWidth: function( nodes ){ // the letiation of concentric values in each level
     // return nodes.maxDegree() / 4;
     // },
-    animate: true, // whether to transition the node positions
+    animate: true // whether to transition the node positions
     // animationDuration: 500, // duration of animation in ms if enabled
     // animationEasing: undefined, // easing of animation if enabled
     // animateFilter: function ( node, i ){ return true; }, // a function that determines whether the node should be animated.  All nodes animated by default on animate enabled.  Non-animated nodes are positioned immediately when the layout starts
     // ready: undefined, // callback on layoutready
     // stop: undefined, // callback on layoutstop
-    
   }
-]; 
+];
 
+function addImage(pk) {
+  alert("addImage: " + pk);
+}
+
+$("#myModal .save").click(function(e) {
+  e.preventDefault();
+  addImage(5);
+  $("#myModal").modal("hide");
+  //$(this).tab('show')
+  return false;
+});

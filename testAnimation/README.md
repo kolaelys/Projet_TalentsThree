@@ -36,21 +36,14 @@
 
 #### Ce que j'ai fais
 
-* Appartion du graphique au click du bouton `ouvrir l'arbre de compétence` et retour à la vu d'avant lors du clic sur l'image `Bricoschool`
-* Changement sur l'animation parents/enfants pour qu'elle soit effective dans les deux sens
+* Les informations apparaissent au clic de la compétence dans un modal
+* j'ai rajouté des checkBox dans la rankDescription pour que l'utilisateur coche au fur et à mesure
 
 #### Ce que je prévois de faire après
 
-* Trouver comment reproduire l'ancienne animation (disparition et apparition noeud après noeud) 
-
-* Continuer de travailler sur la "bulle" d'information qui est actuellement inséré en brut dans des div HTML
+* Trouver le moyen de faire apparaitre tous les éléments (même avec une boucle for, cela ne m'affice que le dernier élément, ou pour rankDescription j'obtiens les éléments les uns à la suite des autres
 
 
-#### Mes tentatives d'aujourdhui 
-
-* J'ai essayé de de changer le background du graph selon les nodes, mais seul la couleur des compétences changent, pas le fond
-
-> Je n'ai mallheuresement pas obtenue de résultats pour ce point
 
 
  

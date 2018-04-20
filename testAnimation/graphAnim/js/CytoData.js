@@ -38,8 +38,8 @@ var SkillsElements = {
         description:
           "Principale langue du web, le HTML est constituté de texte encadré de balises. ",
         rankDescriptions: [
-          "Savoir construire une page web simple",
-          "Savoir creer des liens, faire une page multi-colonnes, travailler avec des champs de formulaires et balises medias."
+          ["Savoir construire une page web simple"],
+          ["Savoir creer des liens, faire une page multi-colonnes, travailler avec des champs de formulaires et balises medias."]
         ],
         links: [
           {
