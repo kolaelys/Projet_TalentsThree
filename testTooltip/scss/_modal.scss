@@ -1,0 +1,38 @@
+.scaleIn {
+    animation: scaleIn 0.5s ease-in both;
+    -webkit-animation: scaleIn 0.5s ease-in both;
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+  
+  
+  @-webkit-keyframes scaleIn {
+    from {
+      opacity: 0;
+      -webkit-transform: scale(0.5);
+    }
+  }
+
+  #mainModal{
+      height: 400px;
+      display: none;
+      position: relative;
+      z-index: 1000;
+      width: 40%;
+      margin: auto;
+      border: 2px solid blue;
+      box-shadow: -4px 4px black
+  }
+
+  .tab-content{
+    height: 200px;
+    margin: auto;
+    table-layout: fixed;  
+    word-wrap: break-word;
+   }
+ 

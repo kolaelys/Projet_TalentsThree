@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TestCytoscapeJS</title>
+    <meta name="description" content="L'arbre des compétences du développement web">
+    <meta name="keywords" content="web design development rpg game talent skill">
+
+    <!-- CSS -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+</head>
+
+<body>
+
+    <!-- GRAPH-->
+ 
+    <div id="cy">
+        <button id="changeLayout" type="button" class="btn btn-danger bmd-btn-icon">Change Layout</button>
+        <div class="list-inline">
+            <div id="description"></div>
+        </div>
+    </div>
+   
+
+    <!-- OUVRIR LE GRAPH CYTOSCAPE -->
+
+    <!-- <div class="ltIE9-hide">
+        <div data-bind="css: { open: isOpen }" class="page">
+            <header>
+                <img id="close"  data-bind="click: toggle" src="img/logo.png" class="logo">
+            </header>
+            <div class="intro">
+                <div class="content">
+                    <h2>Un arbre de talents
+                        <br /> pour développeurs web</h2>
+                    <p></p>
+                    <h3></h3>
+                    <button  id="open" data-bind="click: toggle">Ouvrir l'arbre de talents &raquo;</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div> -->
+
+
+    <!-- CHANGER LA FORME DU GRAPHIQUE -->
+
+    <div id="menu">
+        <a class="test" href="#" data-toggle="tooltip" data-placement="right" title="Hooray!" id="NB">Clic sur les compétences pour acceder à ses stats!</div>
+       
+    </div>
+    </div>
+
+
+    <!-- MODAL D'INFORMATIONS QUI S'AFFICHE AU CLICK D'UNE COMPETENCE-->
+
+    <div id="mainModal" <a href="#" class="btn open-popup scaleIn" data-id="popup_3" data-animation="scaleUp" </a>
+
+        <div class="modal-header">
+            <button type="button" id="closeModal">
+                <img src="img/icon.svg" />
+            </button>
+            <h3 ng-hide="newUser">Informations</h3>
+        </div>
+
+
+        <ul class="nav nav-tabs" id="tabContent">
+            <li class="active">
+                <a href="#rankDescriptions" data-toggle="tab">rankDescriptions</a>
+            </li>
+            <li >
+                <a href="#links" data-toggle="tab">Ressources</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="rankDescriptions">
+            </div>
+            <div class="tab-pane" id="links">
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+    <!--BOOTSTAP-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+        <!--qtip-->
+        
+    <!-- GRAPHIQUE CYTOSCAPE-->
+    <script src='node_modules/cytoscape/dist/cytoscape.js'></script>
+    <script src='bower_components/cytoscape-cose-bilkent/cytoscape-cose-bilkent.js'></script>
+
+        <!-- FICHIERS JS-->
+    <script src='js/CytoData.js'></script>
+    <script src='js/index.js'></script>
+    <script src='js/modal.js'></script>
+    <script src="js/displayInfo.js"></script>
+    
+
+
+</body>
+
+</html>
