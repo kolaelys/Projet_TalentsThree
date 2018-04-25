@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function() {
             $('[data-toggle="tooltip"]').tooltip()
           })
           $("#description").empty();
-          $('#description').append(`<span  href="#" data-toggle="popover" data-placement="right" title=${description} data-content="blablalba" id="NB">${description}</span>
+          $('#description').append(`<span  href="#" data-toggle="popover" data-placement="right" title=${description} data-content="blablalba" id="NB">description</span>
           `)
         }
       } else {
