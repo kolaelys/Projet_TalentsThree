@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-  
   //OUVRIR LE GRAPHIQUE
 
   //(Désactivé le temps des tests)
@@ -111,9 +110,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
       }
     ],
-   
-    layout: layoutList[layoutType]
 
+    layout: layoutList[layoutType]
   });
 
   // setLayout();
@@ -126,7 +124,6 @@ document.addEventListener("DOMContentLoaded", function() {
     $("#cy").toggle();
   });
 
-
   cy.on("click", function(event) {
     var evtTarget = event.target;
 
@@ -135,13 +132,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
       var rankDescriptions = event.target.data("rankDescriptions");
       var links = [event.target.data("links")];
-      var front =event.target.data("id");
+      var front = event.target.data("id");
       var back = event.target.data("id");
       var devops = event.target.data("id");
       var design = event.target.data("id");
 
-
-      // INTEGRER LES RANKDESCRIPTIONS SOUS FORME D'INPUT CHECKBOX 
+      // INTEGRER LES RANKDESCRIPTIONS SOUS FORME D'INPUT CHECKBOX
 
       if (typeof rankDescriptions != ["undefined"]) {
         var contenuRankDescription;
@@ -149,79 +145,83 @@ document.addEventListener("DOMContentLoaded", function() {
         for (var i = 0; i < rankDescriptions.length; i++) {
           console.log(rankDescriptions[i]);
           for (var j = 0; j < rankDescriptions[i].length; j++) {
-            contenuRankDescription += ` <input type="checkbox" class="rankCheck" name="rankCheck[]"/> ${rankDescriptions[i][j] }<br/>`;
+            contenuRankDescription += ` <input type="checkbox" class="rankCheck" name="rankCheck[]"/> ${
+              rankDescriptions[i][j]
+            }<br/>`;
           }
         }
         $("#rankDescriptions").html(contenuRankDescription);
 
-         $(function(){
-           var rankCheck = $('input[name="rankCheck[]"]');
-           for(var i=0; i<rankCheck.length; i++){
-           var rankI =  $('input[i][name="rankCheck[]"]');
-           var rankCheckActive= $('input[name="rankCheck[]"]:checked');
-           }
-          $(rankCheck).change(function()
-          {
-   
-            if ($(rankCheck[0]).is(':checked') || $(rankCheck[1]).is(':checked')) {
-              evtTarget.css('background-color', 'yellow');
+        $(function() {
+          var rankCheck = $('input[name="rankCheck[]"]');
+          for (var i = 0; i < rankCheck.length; i++) {
+            var rankI = $('input[i][name="rankCheck[]"]');
+            var rankCheckActive = $('input[name="rankCheck[]"]:checked');
+          }
+          $(rankCheck).change(function() {
+            if (
+              $(rankCheck[0]).is(":checked") ||
+              $(rankCheck[1]).is(":checked")
+            ) {
+              evtTarget.css("background-color", "yellow");
+            } else if (
+              $(rankCheck[0]).is(":checked") &&
+              $(rankCheck[1]).is(":checked")
+            ) {
+              evtTarget.css("background-color", "blue");
+            } else {
+              evtTarget.css("background-color", "red");
             }
-            else if($(rankCheck[0]).is(':checked')  && $(rankCheck[1]).is(':checked')){
-              evtTarget.css('background-color', 'blue');
-            }
-            else{
-              evtTarget.css('background-color', 'red');
-            }
-        })
+          });
         });
-      }else{
+      } else {
         $("#rankDescriptions").empty();
       }
-
 
       if (typeof links.length != ["undefined"]) {
         var contenuRessources;
         contenuRessources = `<h1>Les ressources proprosés</h1>`;
         for (var i = 0; i < links.length; i++) {
-
           //Obtenir les labels et liens
-          
+
           if (typeof links[i] != "undefined") {
-          for(var j=0; j<links[i].length; j++){
-            
-               var link = links[i][j]
-                console.log("label: " + link.label);
-                console.log(link.url);
-               contenuRessources += `<br/>${link.label} : ${link.url}<br/>`;
-                
-              }
+            for (var j = 0; j < links[i].length; j++) {
+              var link = links[i][j];
+              console.log("label: " + link.label);
+              console.log(link.url);
+              contenuRessources += `<br/>${link.label} : ${link.url}<br/>`;
             }
-            i++;
           }
+          i++;
         }
-        else{
-          $("#links").empty();
-        }
-        $("#links").html(contenuRessources);
-        $("#mainModal").toggle(true);
+      } else {
+        $("#links").empty();
+      }
+      $("#links").html(contenuRessources);
+      $("#mainModal").toggle(true);
     }
-  })
- 
+  });
+
   var initParent = [];
   cy.ready(function() {
     var html = cy.filter("node[title = 'HTML']");
     var cbd = cy.filter("node[title ='Configuration de bases de données']");
     var du = cy.filter("node[title = 'Découverte utilisateur']");
     var as = cy.filter("node[title = 'Administration serveur']");
+    var desc = cy.filter("node[title = 'HTML']").data('description');
+    console.log(desc)
     initParent.push(html, cbd, du, as);
     console.log(initParent);
-    
+
+    // TEST SUR UNE DIV DANS LE MENU 
+    $("#menu").append(`<a class="test" href="#" data-toggle="popover" data-placement="right" title= ${desc}+data-content="blablalba" id="NB" data-container="#menu">Clic sur les compétences pour acceder à ses stats!</div>`)
+
     for (var i = 0; i < initParent.length; i++) {
       initParent[i].addClass("initParent");
     }
-    var frontNodes= [cy.filter("node[parent = 'front']")]
+    var frontNodes = [cy.filter("node[parent = 'front']")];
 
-    for (var i= 0; i<frontNodes.length; i++){
+    for (var i = 0; i < frontNodes.length; i++) {
       frontNodes[i].addClass("frontNode");
     }
 
@@ -240,26 +240,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
   cy.on("mouseover", function(event) {
     var evtTarget = event.target;
- 
-    if (evtTarget !== cy) {
 
-   
+    if (evtTarget !== cy) {
       var description = event.target.data("description");
 
       if (typeof description != "undefined") {
-        if(evtTarget.hasClass('frontNode')){
-          evtTarget.attr( "title","hooray!");
+        if (evtTarget.hasClass("frontNode")) {
+          // evtTarget.addClass('tooltip')
+          evtTarget.attr("title", "description!");
           evtTarget.attr("data-toggle", "tooltip");
           evtTarget.attr("data-placement", "right");
-          console.log(evtTarget.attr())
-          //alert('done!')
-          
+          console.log(evtTarget.attr());
+          $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+          })
+          $("#description").empty();
+          $('#description').append(`<span  href="#" data-toggle="popover" data-placement="right" title=${description} data-content="blablalba" id="NB">${description}</span>
+          `)
         }
-      }else{
+      } else {
         $("#description").empty();
       }
     }
-    })
+  });
 
   /* cy.on("tap", "node", function() {
     var ModalDescription = event.target.data("description");
