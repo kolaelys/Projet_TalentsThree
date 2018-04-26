@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // noeuds == Compétences
         selector: "node",
         style: {
-          label: "data(title)",
+          label: "data(competence)",
           shape: "hexagon",
           width: "200px",
           height: "200px",
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
       {
         selector: "#front",
         style: {
-          "background-color": "#42f4e8"
+          "background-color": "#42f4e8",
         }
       },
       {
@@ -102,6 +102,12 @@ document.addEventListener("DOMContentLoaded", function() {
         style: {
           "background-color": "#E15cf4"
         }
+      },
+      {
+        selector: '.tool',
+        style:{
+          label: "data(title)",
+        } 
       },
       {
         selector: ":grabbed",
@@ -204,11 +210,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var initParent = [];
   cy.ready(function() {
-    var html = cy.filter("node[title = 'HTML']");
+    var html = cy.filter("node[competence = 'HTML']");
     var cbd = cy.filter("node[title ='Configuration de bases de données']");
     var du = cy.filter("node[title = 'Découverte utilisateur']");
     var as = cy.filter("node[title = 'Administration serveur']");
-    var desc = cy.filter("node[title = 'HTML']").data('description');
+    var desc = cy.filter("node[competence = 'HTML']").data('description');
     console.log(desc)
     initParent.push(html, cbd, du, as);
     console.log(initParent);
@@ -240,29 +246,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
   cy.on("mouseover", function(event) {
     var evtTarget = event.target;
-
+    // var evtPosition= evtTarget.renderedPosition();
     if (evtTarget !== cy) {
       var description = event.target.data("description");
-
       if (typeof description != "undefined") {
         if (evtTarget.hasClass("frontNode")) {
+          evtTarget.addClass('tool')
           // evtTarget.addClass('tooltip')
-          evtTarget.attr("title", "description!");
+          evtTarget.attr("title", description);
           evtTarget.attr("data-toggle", "tooltip");
           evtTarget.attr("data-placement", "right");
-          console.log(evtTarget.attr());
-          $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-          })
-          $("#description").empty();
-          $('#description').append(`<span  href="#" data-toggle="popover" data-placement="right" title=${description} data-content="blablalba" id="NB">description</span>
-          `)
         }
-      } else {
-        $("#description").empty();
-      }
+      } 
     }
-  });
+  }); 
+ 
+  cy.on('mouseout', function(){
+    cy.nodes().removeClass('tool')
+  })
+
 
   /* cy.on("tap", "node", function() {
     var ModalDescription = event.target.data("description");

@@ -233,8 +233,4 @@ input.h2 {
 .frontNode + .tooltip.right > .tooltip-arrow {
   border-right: 5px solid black; }
 
-#menu .popover {
-  width: 200px;
-  height: 250px; }
-
 /*# sourceMappingURL=main.css.map */

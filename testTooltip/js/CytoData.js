@@ -5,7 +5,7 @@ var SkillsElements = {
       data: {
         id: "front",
         description:
-          "Ceci fait partie du front"
+          "Ceci fait partie du front",
       },
     }, 
     {
@@ -33,7 +33,7 @@ var SkillsElements = {
 
       data: {
         id: 1,
-        title: "HTML",
+        competence: "HTML",
         parent: 'front',
         description:
           "Principale langue du web, le HTML est constituté de texte encadré de balises. ",
@@ -81,7 +81,7 @@ var SkillsElements = {
     {
       data: {
         id: 2,
-        title: "CSS",
+        competence: "CSS",
         parent: 'front',
         links: [
           {
@@ -112,7 +112,7 @@ var SkillsElements = {
     {
       data: {
         id: 3,
-        title: "CSS avancé",
+        competence: "CSS avancé",
         parent: "front",
         links: [
           {
@@ -154,7 +154,7 @@ var SkillsElements = {
     {
       data: {
         id: 4,
-        title: "Maitrise du web design",
+        competence: "Maitrise du web design",
         parent: "front",
         description:
           "Vous pouvez réaliser vos idées en les transformant en page HTML avec le CSS adapté",
@@ -169,7 +169,7 @@ var SkillsElements = {
     {
       data: {
         id: 5,
-        title: "Effets jQuery",
+        competence: "Effets jQuery",
         parent:"front",
         links: [
           {
@@ -211,7 +211,7 @@ var SkillsElements = {
       data: {
         id: 6,
         parent: 'HTML',
-        title: "Référencement (SEO)",
+        competence: "Référencement (SEO)",
         parent: "front",
         links: [
           {
@@ -244,7 +244,7 @@ var SkillsElements = {
     {
       data: {
         id: 7,
-        title: "Analytics",
+        competence: "Analytics",
         parent: "front",
         links: [
           {
@@ -283,7 +283,7 @@ var SkillsElements = {
     {
       data: {
         id: 8,
-        title: "Javascript",
+        competence: "Javascript",
         parent: 'front',
         links: [
           {
@@ -307,7 +307,7 @@ var SkillsElements = {
           "Javascript le langage executé principalement coté client. Il peut aussi bien modifier des éléments visuels de la page que faire des appels serveur pour charger de nouvelles informations",
         stats: [
           {
-            title: "Design",
+            competence: "Design",
             value: 3
           }
         ]
@@ -316,7 +316,7 @@ var SkillsElements = {
     {
       data: {
         id: 9,
-        title: "JS bibliothèques & Frameworks",
+        competence: "JS bibliothèques & Frameworks",
         parent: "front",
         links: [
           {
@@ -348,7 +348,7 @@ var SkillsElements = {
     {
       data: {
         id: 10,
-        title: "Maîtrise du développement Frontend",
+        competence: "Maîtrise du développement Frontend",
         parent: "front",
         stats: [
           {
@@ -362,7 +362,7 @@ var SkillsElements = {
     {
       data: {
         id: 11,
-        title: "Programmation serveur",
+        competence: "Programmation serveur",
         parent: 'back',
         links: [
           {
@@ -382,7 +382,7 @@ var SkillsElements = {
     {
       data: {
         id: 12,
-        title: "Frameworks serveur",
+        competence: "Frameworks serveur",
         parent: "back",
         links: [
           {
@@ -415,7 +415,7 @@ var SkillsElements = {
     {
       data: {
         id: 13,
-        title: "Configuration de bases de données",
+        competence: "Configuration de bases de données",
         parent: "back",
         links: [
           {
@@ -453,7 +453,7 @@ var SkillsElements = {
     {
       data: {
         id: 14,
-        title: "Gestion avancée de bases de données",
+        competence: "Gestion avancée de bases de données",
         parent: "back",
         links: [
           {
@@ -509,7 +509,7 @@ var SkillsElements = {
     {
       data: {
         id: 15,
-        title: "Maitrise du développement serveur",
+        competence: "Maitrise du développement serveur",
         parent: "back",
         description:
           "You are capable of architecting and building an application's backend to efficiently store and retrieve data.",
@@ -524,7 +524,7 @@ var SkillsElements = {
     {
       data: {
         id: 16,
-        title: "Authentication et Authorisations",
+        competence: "Authentication et Authorisations",
         parent: "back",
         links: [
           {
@@ -560,7 +560,7 @@ var SkillsElements = {
     {
       data: {
         id: 17,
-        title: "AJAX & APIs",
+        competence: "AJAX & APIs",
         parent: 'front',
         links: [
           {
@@ -607,7 +607,7 @@ var SkillsElements = {
     {
       data: {
         id: 18,
-        title: "Découverte utilisateur",
+        competence: "Découverte utilisateur",
         parent:"design",
         maxPoints: 2,
         rankDescriptions: [
@@ -643,7 +643,7 @@ var SkillsElements = {
     {
       data: {
         id: 19,
-        title: "Design graphique",
+        competence: "Design graphique",
         parent: "design",
         maxPoints: 2,
         rankDescriptions: [
@@ -682,7 +682,7 @@ var SkillsElements = {
     {
       data: {
         id: 20,
-        title: "Outils de design graphique",
+        competence: "Outils de design graphique",
         parent: "design",
         links: [
           {
@@ -708,7 +708,7 @@ var SkillsElements = {
     {
       data: {
         id: 21,
-        title: "Prototypes",
+        competence: "Prototypes",
         parent:"design",
         links: [
           {
@@ -739,7 +739,7 @@ var SkillsElements = {
     {
       data: {
         id: 22,
-        title: "Maîtrise de l'expérience utilisateur",
+        competence: "Maîtrise de l'expérience utilisateur",
         parent: "design",
         description:
           "You are capable of converting project requirements to an attractive design that promotes a pleasant user experience.",
@@ -758,7 +758,7 @@ var SkillsElements = {
     {
       data: {
         id: 23,
-        title: "Tests utilisateur",
+        competence: "Tests utilisateur",
         parent:"design",
         links: [
           {
@@ -789,7 +789,7 @@ var SkillsElements = {
     {
       data: {
         id: 24,
-        title: "Administration serveur",
+        competence: "Administration serveur",
         parent: "devops",
         links: [
           {
@@ -821,7 +821,7 @@ var SkillsElements = {
     {
       data: {
         id: 25,
-        title: "Déploiement",
+        competence: "Déploiement",
         parent:"devops",
         links: [
           {
@@ -863,7 +863,7 @@ var SkillsElements = {
     // {
     //   data: {
     //     id: 26,
-    //     title: "Maître du développement web",
+    //     competence: "Maître du développement web",
     //     dependsOn: [4, 5, 10, 15, 22, 25],
     //     links: [
     //       {
