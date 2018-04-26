@@ -22,9 +22,9 @@
  
     <div id="cy">
         <button id="changeLayout" type="button" class="btn btn-danger bmd-btn-icon">Change Layout</button>
-      <!--  <div class="list-inline">
-            <div id="description"></div>
-        </div> -->
+      <!--  <div class="list-inline">-->
+           
+       <!--  </div> -->
     </div>
    
 
@@ -53,15 +53,15 @@
     <!-- CHANGER LA FORME DU GRAPHIQUE -->
 
     <div id="menu">
-        
-       
+        <div id="description"></div>
+        <div id="rankDescription"></div>
     </div>
     </div>
 
 
     <!-- MODAL D'INFORMATIONS QUI S'AFFICHE AU CLICK D'UNE COMPETENCE-->
 
-    <div id="mainModal" <a href="#" class="btn open-popup scaleIn" data-id="popup_3" data-animation="scaleUp" </a>
+   <!-- <div id="mainModal" <a href="#" class="btn open-popup scaleIn" data-id="popup_3" data-animation="scaleUp" </a>
 
         <div class="modal-header">
             <button type="button" id="closeModal">
@@ -89,7 +89,7 @@
         </div>
     </div>
 
-    </div>
+    </div> -->
 
 
    
@@ -107,13 +107,16 @@
     <script src="bootstrap-4.0.0/dist/js/bootstrap.bundle.min.js"></script>    
 
         <!--Tooltip-->
-
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.js"></script>
+          <script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-qtip/2.2.5/cytoscape-qtip.js"></script>
 
         
     <!-- GRAPHIQUE CYTOSCAPE-->
-    <script src='node_modules/cytoscape/dist/cytoscape.js'></script>
+     <script src='node_modules/cytoscape/dist/cytoscape.js'></script> 
     <script src='bower_components/cytoscape-cose-bilkent/cytoscape-cose-bilkent.js'></script>
-
+   <!-- <script src='bower_components/cytoscape-qtip/cytoscape-qtip.js'></script>-->
+    <script src="//cdn.rawgit.com/cytoscape/cytoscape.js-qtip/70964f0306e770837dbe2b81197c12fdc7804e38/cytoscape-qtip.js"></script>
         <!-- FICHIERS JS-->
     <script src='js/CytoData.js'></script>
     <script src='js/index.js'></script>

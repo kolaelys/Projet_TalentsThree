@@ -32,16 +32,15 @@
 
 
  
-#### Ce que j'essaie de faire 
-> Afficher une "bulle d'information" contenant la description des compétences sur lesquels on passe la souris. Utilisation de [Tooltip](https://getbootstrap.com/docs/4.0/components/tooltips/)
-Pour l'instant je fais apparaître un mot "description" dans une div `$('#description")` et au survol de la souris il devrait m'afficher la description complète du fichier data. Je n'arrive à obtenir que le premier mot. 
-
-
+#### Ce que je suis en train de faire
+> Afficher les informations `description` et `rankDescription` dans la div du menu au clic
 
 
 #### Ce que je prévois de faire après
 
-* Afficher le `tooltip` directement sur les noeuds de compétence du graphique. 
+* Travailler sur les animations d'apparitions de des datas
+* Ajouter une animation (type slide) pour faire apparaitre le menu au clic des compétences 
+
 
 
 

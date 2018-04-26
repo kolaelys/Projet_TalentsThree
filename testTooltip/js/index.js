@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function() {
   //OUVRIR LE GRAPHIQUE
 
@@ -83,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
         selector: "#front",
         style: {
           "background-color": "#42f4e8",
+          "background-width": "300px"
         }
       },
       {
@@ -102,12 +104,6 @@ document.addEventListener("DOMContentLoaded", function() {
         style: {
           "background-color": "#E15cf4"
         }
-      },
-      {
-        selector: '.tool',
-        style:{
-          label: "data(title)",
-        } 
       },
       {
         selector: ":grabbed",
@@ -131,11 +127,13 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   cy.on("click", function(event) {
+    // $("#menu").empty()
     var evtTarget = event.target;
 
     if (evtTarget !== cy) {
       //RECUPERATION DES DONNEES
-
+      var description = event.target.data("description");
+      $('#description').append(description)
       var rankDescriptions = event.target.data("rankDescriptions");
       var links = [event.target.data("links")];
       var front = event.target.data("id");
@@ -156,7 +154,9 @@ document.addEventListener("DOMContentLoaded", function() {
             }<br/>`;
           }
         }
-        $("#rankDescriptions").html(contenuRankDescription);
+        
+       
+        $("#rankDescription").append(contenuRankDescription);
 
         $(function() {
           var rankCheck = $('input[name="rankCheck[]"]');
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
           });
         });
       } else {
-        $("#rankDescriptions").empty();
+        $("#rankDescription").empty();
       }
 
       if (typeof links.length != ["undefined"]) {
@@ -211,17 +211,15 @@ document.addEventListener("DOMContentLoaded", function() {
   var initParent = [];
   cy.ready(function() {
     var html = cy.filter("node[competence = 'HTML']");
-    var cbd = cy.filter("node[title ='Configuration de bases de données']");
-    var du = cy.filter("node[title = 'Découverte utilisateur']");
-    var as = cy.filter("node[title = 'Administration serveur']");
+    var cbd = cy.filter("node[competence ='Configuration de bases de données']");
+    var du = cy.filter("node[competence = 'Découverte utilisateur']");
+    var as = cy.filter("node[competence = 'Administration serveur']");
     var desc = cy.filter("node[competence = 'HTML']").data('description');
     console.log(desc)
     initParent.push(html, cbd, du, as);
     console.log(initParent);
 
     // TEST SUR UNE DIV DANS LE MENU 
-    $("#menu").append(`<a class="test" href="#" data-toggle="popover" data-placement="right" title= ${desc}+data-content="blablalba" id="NB" data-container="#menu">Clic sur les compétences pour acceder à ses stats!</div>`)
-
     for (var i = 0; i < initParent.length; i++) {
       initParent[i].addClass("initParent");
     }
@@ -243,27 +241,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
   var removed;
-
-  cy.on("mouseover", function(event) {
-    var evtTarget = event.target;
-    // var evtPosition= evtTarget.renderedPosition();
-    if (evtTarget !== cy) {
-      var description = event.target.data("description");
-      if (typeof description != "undefined") {
-        if (evtTarget.hasClass("frontNode")) {
-          evtTarget.addClass('tool')
-          // evtTarget.addClass('tooltip')
-          evtTarget.attr("title", description);
-          evtTarget.attr("data-toggle", "tooltip");
-          evtTarget.attr("data-placement", "right");
-        }
-      } 
-    }
-  }); 
- 
-  cy.on('mouseout', function(){
-    cy.nodes().removeClass('tool')
-  })
 
 
   /* cy.on("tap", "node", function() {
