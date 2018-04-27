@@ -32,14 +32,13 @@
 
 
  
-#### Ce que je suis en train de faire
+#### Ce que j'ai fais
 > Afficher les informations `description` et `rankDescription` dans la div du menu au clic
-
-
-#### Ce que je prévois de faire après
-
-* Travailler sur les animations d'apparitions de des datas
-* Ajouter une animation (type slide) pour faire apparaitre le menu au clic des compétences 
+> Animation lors de l'apparition de celle-ci
+> Slide du menu
+> Bouton de fermeture du menu 
+> Création d'un nouveau noeud parent "frontBack" pour y insérer les compétence hybride comme `Ajax`
+> Création d'un double sur les parents de API afin d'éviter les croisements entre les liens 
 
 
 

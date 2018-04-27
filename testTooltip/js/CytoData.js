@@ -1,45 +1,47 @@
 var SkillsElements = {
-  nodes: 
-  [
+  nodes: [
     {
       data: {
         id: "front",
-        description:
-          "Ceci fait partie du front",
-      },
-    }, 
+        description: "Ceci fait partie du front"
+      }
+    },
     {
       data: {
         id: "back",
-        description:
-          "Ceci fait partie du back"
-      },
+        description: "Ceci fait partie du back"
+      }
     },
     {
       data: {
         id: "devops",
-        description:
-          "Ceci fait partie du devop's"
-      },
+        description: "Ceci fait partie du devop's"
+      }
     },
     {
       data: {
         id: "design",
-        description:
-          "Ceci fait partie du design"
-      },
-    },   
+        description: "Ceci fait partie du design"
+      }
+    },
     {
-
+      data: {
+        id: "frontBack",
+        description: "Ceci fait partie du Front et du Back"
+      }
+    },
+    {
       data: {
         id: 1,
         competence: "HTML",
-        parent: 'front',
+        parent: "front",
         description:
           "Principale langue du web, le HTML est constituté de texte encadré de balises. ",
         rankDescriptions: [
           ["Savoir construire une page web simple"],
-          ["Savoir creer des liens, faire une page multi-colonnes, travailler avec des champs de formulaires et balises medias."]
+          [
+            "Savoir creer des liens, faire une page multi-colonnes, travailler avec des champs de formulaires et balises medias."
+          ]
         ],
         links: [
           {
@@ -69,20 +71,20 @@ var SkillsElements = {
             title: "Reseau",
             value: 1
           }
-        ],
+        ]
       },
-      position:{
-        x:-4550.1,
-        y:3.5,
+      position: {
+        x: -4550.1,
+        y: 3.5
+      },
+      group: "nodes"
     },
-    group: "nodes"   
-  },
 
     {
       data: {
         id: 2,
         competence: "CSS",
-        parent: 'front',
+        parent: "front",
         links: [
           {
             label: "Tutoriaux CSS",
@@ -101,8 +103,12 @@ var SkillsElements = {
           }
         ],
         rankDescriptions: [
-          ["Etre familier avec les notions de bases de la mise en forme CSS et le concept de box."],
-          ["Vous connaissez les media queries et le responsive design  pour vous adapter à tous les supports"]
+          [
+            "Etre familier avec les notions de bases de la mise en forme CSS et le concept de box."
+          ],
+          [
+            "Vous connaissez les media queries et le responsive design  pour vous adapter à tous les supports"
+          ]
         ],
         description:
           "Cascading Style Sheets (CSS) est un langage pour changer visuellement les pages webs.  Le CSS vise des élements du HTML pour modifier la couleur, la taille de la police...",
@@ -135,7 +141,9 @@ var SkillsElements = {
         maxPoints: 2,
         rankDescriptions: [
           ["Vous êtes à l'aise avec les varialbesl et le nesting"],
-          ["Vous pouvez utiliser des outils avancés comme les mix-ins et parfois écrire les votres."]
+          [
+            "Vous pouvez utiliser des outils avancés comme les mix-ins et parfois écrire les votres."
+          ]
         ],
         description:
           "Les preprocesseurs comme LESS et SASS permettent d'ajouter des fonctionnalités au CSS comme les fonctions, les variables..",
@@ -170,7 +178,7 @@ var SkillsElements = {
       data: {
         id: 5,
         competence: "Effets jQuery",
-        parent:"front",
+        parent: "front",
         links: [
           {
             label: "Codecademy jQuery",
@@ -187,9 +195,13 @@ var SkillsElements = {
         ],
         maxPoints: 3,
         rankDescriptions: [
-          ["Vous êtes familier avec la manipulation du DOM (Document Object Model) - modifier des valeurs, contenus .. "],
+          [
+            "Vous êtes familier avec la manipulation du DOM (Document Object Model) - modifier des valeurs, contenus .. "
+          ],
           ["Vous êtes familier avec l'ajout d'une animation à une page web"],
-          ["Vous êtes familier la création et l'ajout d'effets originaux à une page"]
+          [
+            "Vous êtes familier la création et l'ajout d'effets originaux à une page"
+          ]
         ],
         description:
           "jQuery fourni des techniques et méthodes pour la manipulation des éléments d'une page web, coté client",
@@ -210,7 +222,7 @@ var SkillsElements = {
     {
       data: {
         id: 6,
-        parent: 'HTML',
+        parent: "HTML",
         competence: "Référencement (SEO)",
         parent: "front",
         links: [
@@ -284,7 +296,7 @@ var SkillsElements = {
       data: {
         id: 8,
         competence: "Javascript",
-        parent: 'front',
+        parent: "front",
         links: [
           {
             label: "JavaScript Tutorial",
@@ -327,8 +339,12 @@ var SkillsElements = {
         ],
         maxPoints: 2,
         rankDescriptions: [
-          ["Vous utilisez des bibliothèques comme jQuery, MooTools, Prototype, Dojo, et YUI pour accellerer votre travail"],
-          ["Vous utilisez des Frameworks comme Ember.js, AngularJS, and Backbone.js pour créer des fonctionnalités complexes."]
+          [
+            "Vous utilisez des bibliothèques comme jQuery, MooTools, Prototype, Dojo, et YUI pour accellerer votre travail"
+          ],
+          [
+            "Vous utilisez des Frameworks comme Ember.js, AngularJS, and Backbone.js pour créer des fonctionnalités complexes."
+          ]
         ],
         description:
           "Une fois que vous êtes à l'aise avec le Javascript, il y a une multitude de Frameworks a étudier pour transformer vos pages en véritables applications.",
@@ -363,7 +379,7 @@ var SkillsElements = {
       data: {
         id: 11,
         competence: "Programmation serveur",
-        parent: 'back',
+        parent: "back",
         links: [
           {
             label: "Server-side scripting Wiki",
@@ -445,10 +461,10 @@ var SkillsElements = {
           }
         ]
       },
-      position:{
-        x:-56.76,
-        y:1011.4466887
-    },
+      position: {
+        x: -56.76,
+        y: 1011.4466887
+      }
     },
     {
       data: {
@@ -487,8 +503,12 @@ var SkillsElements = {
         ],
         maxPoints: 2,
         rankDescriptions: [
-          ["You write stored procedures and user-defined functions for more efficient querying."],
-          ["You can detect causes of performance deficiencies and fine tune a database like a rock star."]
+          [
+            "You write stored procedures and user-defined functions for more efficient querying."
+          ],
+          [
+            "You can detect causes of performance deficiencies and fine tune a database like a rock star."
+          ]
         ],
         description:
           "Besides creating basic tables and relating data, databases allow for the creation of stored procedures, sets of SQL statements that are stored in the database, and user-defined functions (UDFs) , functions that can be used in SQL statements.  Just architecting the database is not enough.  The database also needs to be optimized or tuned to increase performance.",
@@ -561,7 +581,7 @@ var SkillsElements = {
       data: {
         id: 17,
         competence: "AJAX & APIs",
-        parent: 'front',
+        parent: "frontBack",
         links: [
           {
             label: "AJAX (programming) Wiki",
@@ -608,11 +628,15 @@ var SkillsElements = {
       data: {
         id: 18,
         competence: "Découverte utilisateur",
-        parent:"design",
+        parent: "design",
         maxPoints: 2,
         rankDescriptions: [
-          ["Vous savez poser les bonnes questions, et utiliser des croquis pour confirmer vos idées"],
-          ["Vous utilisez des techniques avancées comme les parcours utilisateurs pour mener les conversations avec des parties prenantes."]
+          [
+            "Vous savez poser les bonnes questions, et utiliser des croquis pour confirmer vos idées"
+          ],
+          [
+            "Vous utilisez des techniques avancées comme les parcours utilisateurs pour mener les conversations avec des parties prenantes."
+          ]
         ],
         links: [
           {
@@ -635,10 +659,10 @@ var SkillsElements = {
         ],
         talents: ["Télépathie"]
       },
-      position:{
-        x:-0.35,
-        y:-2.9,
-    },
+      position: {
+        x: -0.35,
+        y: -2.9
+      }
     },
     {
       data: {
@@ -647,8 +671,12 @@ var SkillsElements = {
         parent: "design",
         maxPoints: 2,
         rankDescriptions: [
-          ["You can create a balanced, complementary layout with a clear message."],
-          ["You understand how to create a strikingly unique design, which supports traditional design values as well as your underlying message."]
+          [
+            "You can create a balanced, complementary layout with a clear message."
+          ],
+          [
+            "You understand how to create a strikingly unique design, which supports traditional design values as well as your underlying message."
+          ]
         ],
         links: [
           {
@@ -709,7 +737,7 @@ var SkillsElements = {
       data: {
         id: 21,
         competence: "Prototypes",
-        parent:"design",
+        parent: "design",
         links: [
           {
             label: "Design Better And Faster With Rapid Prototyping",
@@ -759,7 +787,7 @@ var SkillsElements = {
       data: {
         id: 23,
         competence: "Tests utilisateur",
-        parent:"design",
+        parent: "design",
         links: [
           {
             label: "My big list of 24 Web Site Usability Testing Tools",
@@ -804,8 +832,12 @@ var SkillsElements = {
         ],
         maxPoints: 2,
         rankDescriptions: [
-          ["You are capable of setting up your application in a new environment."],
-          ["Vous êtes familier avec server-side URL rewriting tools like mod_rewrite."]
+          [
+            "You are capable of setting up your application in a new environment."
+          ],
+          [
+            "Vous êtes familier avec server-side URL rewriting tools like mod_rewrite."
+          ]
         ],
         description:
           "Even the simplest web applications will require a server to run them.  There are several popular and fully-featured web servers to choose from, though your application's server-side programming language may limit your options.  Learning to manage and configure your web server will help you keep your site up and running smoothly.",
@@ -822,7 +854,7 @@ var SkillsElements = {
       data: {
         id: 25,
         competence: "Déploiement",
-        parent:"devops",
+        parent: "devops",
         links: [
           {
             label: "SSL Certificate Installation",
@@ -841,7 +873,9 @@ var SkillsElements = {
         ],
         maxPoints: 2,
         rankDescriptions: [
-          ["You minify your public-facing files and serve compressed files to save bandwidth and improve your site&raquo;s speed."],
+          [
+            "You minify your public-facing files and serve compressed files to save bandwidth and improve your site&raquo;s speed."
+          ],
           ["You secure sensitive traffic over HTTPS using an SSL certificate."]
         ],
         description:
@@ -902,12 +936,39 @@ var SkillsElements = {
     //     talents: ["Demidieu"]
     //   }
     // },
+
+    {
+      data: {
+        id: 29,
+        competence: "Maitrise du Front",
+        description:
+          "Vous pouvez réaliser vos idées en les transformant en page HTML avec le CSS adapté",
+        stats: [
+          {
+            title: "Sens du visuel",
+            value: 10
+          }
+        ]
+      }
+    },
+    {
+      data: {
+        id: 30,
+        competence: "Maitrise du développement serveur",
+        description:
+          "You are capable of architecting and building an application's backend to efficiently store and retrieve data.",
+        stats: [
+          {
+            title: "Reseau",
+            value: 10
+          }
+        ]
+      }
+    },
   ],
-  
-//Liens entre les compétences 
-  edges: 
-  [
-    
+
+  //Liens entre les compétences
+  edges: [
     {
       data: {
         id: "CSS",
@@ -959,223 +1020,220 @@ var SkillsElements = {
       }
     },
     {
-        data: {
-          id: "Javascript",
-          spe: "Front",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 1,
-          target: 8
-        }
-      },
-      {
-        data: {
-          id: "JS bibliothèques & Frameworks",
-          spe: "Front",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 8,
-          target: 9
-        }
-      },
-      {
-        data: {
-          id: "Maîtrise du développement Frontend",
-          spe: "Front",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 9,
-          target: 10
-        }
-      },
-      {
-        data: {
-          id: "Programmation serveur",
-          spe: "Back",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 1,
-          target: 11
-        }
-      },
-      {
-        data: {
-          id: "Frameworks serveur",
-          spe: "Back",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 11,
-          target: 12
-        }
-      },
-      {
-        data: {
-          id: "Gestion avancée de bases de données",
-          spe: "Back",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 13,
-          target: 14
-        }
-      },
-      {
-        data: {
-          id: "Maitrise du développement serveur",
-          spe: "Back",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 14,
-          target: 15
-        }
-      },
-      {
-        data: {
-          id: "Maitrise du développement serveur2",
-          spe: "Back",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 15,
-          target: 12
-        }
-      },
-      {
-        data: {
-          id: "Authentication et Authorisations",
-          spe: "Back",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 15,
-          target: 16
-        }
-      },
-      {
-        data: {
-          id: "AJAX & APIs",
-          spe: "Back",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 15,
-          target: 17
-        }
-      },
-      {
-        data: {
-          id: "AJAX & APIs2",
-          spe: "Back",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 10,
-          target: 17
-        }
-      },
-      {
-        data: {
-          id: "Design graphique",
-          spe: "",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 18,
-          target: 19
-        }
-      },
-      {
-        data: {
-          id: "Outils de design graphique",
-          spe: "",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 19,
-          target: 20
-        }
-      },
-      {
-        data: {
-          id: "Prototypes",
-          spe: "",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 18,
-          target: 21
-        }
-      },
-      {
-        data: {
-          id: "Maîtrise de l'expérience utilisateur",
-          spe: "",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 19,
-          target: 22
-        }
-      },
-      {
-        data: {
-          id: "Maîtrise de l'expérience utilisateur2",
-          spe: "",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 21,
-          target: 22
-        }
-      },
-      {
-        data: {
-          id: "Tests utilisateur",
-          spe: "",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 22,
-          target: 23
-        }
-      },
-      {
-        data: {
-          id: "Déploiement",
-          spe: "",
-          // 4 is GADP, 5 is DHAP and is therefore skipped over
-          source: 24,
-          target: 25
-        }
-      },
-      // {
-      //   data: {
-      //     id: "Maître du développement web",
-      //     spe: "",
-      //     // 4 is GADP, 5 is DHAP and is therefore skipped over
-      //     source: 25,
-      //     target: 26
-      //   }
-      // },
-      // {
-      //   data: {
-      //     id: "Maître du développement web1",
-      //     spe: "",
-      //     // 4 is GADP, 5 is DHAP and is therefore skipped over
-      //     source: 4,
-      //     target: 26
-      //   }
-      // },
-      // {
-      //   data: {
-      //     id: "Maître du développement web2",
-      //     spe: "",
-      //     // 4 is GADP, 5 is DHAP and is therefore skipped over
-      //     source:7,
-      //     target: 26
-      //   }
-      // },
-      // {
-      //   data: {
-      //     id: "Maître du développement web3",
-      //     spe: "",
-      //     // 4 is GADP, 5 is DHAP and is therefore skipped over
-      //     source: 10,
-      //     target: 26
-      //   }
-      // },
-      // {
-      //   data: {
-      //     id: "Maître du développement web4",
-      //     spe: "",
-      //     // 4 is GADP, 5 is DHAP and is therefore skipped over
-      //     source: 18,
-      //     target: 26
-      //   }   
-      // },
-      // {
-      //   data: {
-      //     id: "Maître du développement web5",
-      //     spe: "",
-      //     // 4 is GADP, 5 is DHAP and is therefore skipped over
-      //     source: 22,
-      //     target: 26
-      //   }
-      // }
-      
+      data: {
+        id: "Javascript",
+        spe: "Front",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 1,
+        target: 8
+      }
+    },
+    {
+      data: {
+        id: "JS bibliothèques & Frameworks",
+        spe: "Front",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 8,
+        target: 9
+      }
+    },
+    {
+      data: {
+        id: "Maîtrise du développement Frontend",
+        spe: "Front",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 9,
+        target: 10
+      }
+    },
+    {
+      data: {
+        id: "Frameworks serveur",
+        spe: "Back",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 11,
+        target: 12
+      }
+    },
+    {
+      data: {
+        id: "Gestion avancée de bases de données",
+        spe: "Back",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 13,
+        target: 14
+      }
+    },
+    {
+      data: {
+        id: "Maitrise du développement serveur",
+        spe: "Back",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 14,
+        target: 15
+      }
+    },
+    {
+      data: {
+        id: "Maitrise du développement serveur2",
+        spe: "Back",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 15,
+        target: 12
+      }
+    },
+    {
+      data: {
+        id: "Authentication et Authorisations",
+        spe: "Back",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 15,
+        target: 16
+      }
+    },
+    {
+      data: {
+        id: "AJAX & APIs",
+        spe: "frontBack",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: "29", //Maitrise du developpement front
+        target: "17" //Maistrise developpement serveur
+      }
+    },
+    {
+      data: {
+        id: "AJAX & APIs2",
+        spe: "frontBack",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: "30",
+        target: "17"
+      }
+    },
+    {
+      data: {
+        id: "Design graphique",
+        spe: "",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 18,
+        target: 19
+      }
+    },
+    {
+      data: {
+        id: "Outils de design graphique",
+        spe: "",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 19,
+        target: 20
+      }
+    },
+    {
+      data: {
+        id: "Prototypes",
+        spe: "",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 18,
+        target: 21
+      }
+    },
+    {
+      data: {
+        id: "Maîtrise de l'expérience utilisateur",
+        spe: "",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 19,
+        target: 22
+      }
+    },
+    {
+      data: {
+        id: "Maîtrise de l'expérience utilisateur2",
+        spe: "",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 21,
+        target: 22
+      }
+    },
+    {
+      data: {
+        id: "Tests utilisateur",
+        spe: "",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 22,
+        target: 23
+      }
+    },
+    {
+      data: {
+        id: "Déploiement",
+        spe: "",
+        // 4 is GADP, 5 is DHAP and is therefore skipped over
+        source: 24,
+        target: 25
+      }
+    },
+    // {
+    //   data: {
+    //     id: "MF",
+    //     spe: "",
+    //     // 4 is GADP, 5 is DHAP and is therefore skipped over
+    //     target: 17
+    //   }
+    // }
+  
+    // {
+    //   data: {
+    //     id: "Maître du développement web",
+    //     spe: "",
+    //     // 4 is GADP, 5 is DHAP and is therefore skipped over
+    //     source: 25,
+    //     target: 26
+    //   }
+    // },
+    // {
+    //   data: {
+    //     id: "Maître du développement web1",
+    //     spe: "",
+    //     // 4 is GADP, 5 is DHAP and is therefore skipped over
+    //     source: 4,
+    //     target: 26
+    //   }
+    // },
+    // {
+    //   data: {
+    //     id: "Maître du développement web2",
+    //     spe: "",
+    //     // 4 is GADP, 5 is DHAP and is therefore skipped over
+    //     source:7,
+    //     target: 26
+    //   }
+    // },
+    // {
+    //   data: {
+    //     id: "Maître du développement web3",
+    //     spe: "",
+    //     // 4 is GADP, 5 is DHAP and is therefore skipped over
+    //     source: 10,
+    //     target: 26
+    //   }
+    // },
+    // {
+    //   data: {
+    //     id: "Maître du développement web4",
+    //     spe: "",
+    //     // 4 is GADP, 5 is DHAP and is therefore skipped over
+    //     source: 18,
+    //     target: 26
+    //   }
+    // },
+    // {
+    //   data: {
+    //     id: "Maître du développement web5",
+    //     spe: "",
+    //     // 4 is GADP, 5 is DHAP and is therefore skipped over
+    //     source: 22,
+    //     target: 26
+    //   }
+    // }
   ]
-
-
 };

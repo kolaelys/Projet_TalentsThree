@@ -34,28 +34,25 @@
 }
 
 html {
-  overflow-y: scroll;
-  background: rgb(86, 42, 197);
-
-}
-
-body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 1.5em;
   padding-top: 35px;
+  background-color: #4682B4;
+
 }
 
 #cy {
-  width: 70%;
+  width: 80%;
+  opacity: 0.8;
   height: 550px;
   position: absolute;
-  top: 0;
-  left: 30%;
-  z-index: 100;
-  background: rgb(86, 42, 197);
+  top: 0%;
+  left: 10%;
+  z-index: 1000;
+  background: #4682B4;
 
 }
 
